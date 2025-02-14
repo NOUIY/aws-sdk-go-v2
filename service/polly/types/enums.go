@@ -6,17 +6,22 @@ type Engine string
 
 // Enum values for Engine
 const (
-	EngineStandard Engine = "standard"
-	EngineNeural   Engine = "neural"
+	EngineStandard   Engine = "standard"
+	EngineNeural     Engine = "neural"
+	EngineLongForm   Engine = "long-form"
+	EngineGenerative Engine = "generative"
 )
 
 // Values returns all known values for Engine. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (Engine) Values() []Engine {
 	return []Engine{
 		"standard",
 		"neural",
+		"long-form",
+		"generative",
 	}
 }
 
@@ -29,8 +34,9 @@ const (
 )
 
 // Values returns all known values for Gender. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (Gender) Values() []Gender {
 	return []Gender{
 		"Female",
@@ -81,11 +87,15 @@ const (
 	LanguageCodeEnIe    LanguageCode = "en-IE"
 	LanguageCodeNlBe    LanguageCode = "nl-BE"
 	LanguageCodeFrBe    LanguageCode = "fr-BE"
+	LanguageCodeCsCz    LanguageCode = "cs-CZ"
+	LanguageCodeDeCh    LanguageCode = "de-CH"
+	LanguageCodeEnSg    LanguageCode = "en-SG"
 )
 
 // Values returns all known values for LanguageCode. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// expanded in the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (LanguageCode) Values() []LanguageCode {
 	return []LanguageCode{
 		"arb",
@@ -127,6 +137,9 @@ func (LanguageCode) Values() []LanguageCode {
 		"en-IE",
 		"nl-BE",
 		"fr-BE",
+		"cs-CZ",
+		"de-CH",
+		"en-SG",
 	}
 }
 
@@ -141,8 +154,9 @@ const (
 )
 
 // Values returns all known values for OutputFormat. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// expanded in the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (OutputFormat) Values() []OutputFormat {
 	return []OutputFormat{
 		"json",
@@ -163,8 +177,9 @@ const (
 )
 
 // Values returns all known values for SpeechMarkType. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// expanded in the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (SpeechMarkType) Values() []SpeechMarkType {
 	return []SpeechMarkType{
 		"sentence",
@@ -185,8 +200,9 @@ const (
 )
 
 // Values returns all known values for TaskStatus. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// in the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (TaskStatus) Values() []TaskStatus {
 	return []TaskStatus{
 		"scheduled",
@@ -205,8 +221,9 @@ const (
 )
 
 // Values returns all known values for TextType. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (TextType) Values() []TextType {
 	return []TextType{
 		"ssml",
@@ -310,11 +327,19 @@ const (
 	VoiceIdSofie     VoiceId = "Sofie"
 	VoiceIdLisa      VoiceId = "Lisa"
 	VoiceIdIsabelle  VoiceId = "Isabelle"
+	VoiceIdZayd      VoiceId = "Zayd"
+	VoiceIdDanielle  VoiceId = "Danielle"
+	VoiceIdGregory   VoiceId = "Gregory"
+	VoiceIdBurcu     VoiceId = "Burcu"
+	VoiceIdJitka     VoiceId = "Jitka"
+	VoiceIdSabrina   VoiceId = "Sabrina"
+	VoiceIdJasmine   VoiceId = "Jasmine"
 )
 
 // Values returns all known values for VoiceId. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (VoiceId) Values() []VoiceId {
 	return []VoiceId{
 		"Aditi",
@@ -409,5 +434,12 @@ func (VoiceId) Values() []VoiceId {
 		"Sofie",
 		"Lisa",
 		"Isabelle",
+		"Zayd",
+		"Danielle",
+		"Gregory",
+		"Burcu",
+		"Jitka",
+		"Sabrina",
+		"Jasmine",
 	}
 }
