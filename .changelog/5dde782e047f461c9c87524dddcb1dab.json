@@ -1,8 +1,0 @@
-{
-    "id": "5dde782e-047f-461c-9c87-524dddcb1dab",
-    "type": "feature",
-    "description": "G7e instances feature up to 8 NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs with 768 GB of memory and 5th generation Intel Xeon Scalable processors. Supporting up to 192 vCPUs, 1600 Gbps networking bandwidth with EFA, up to 2 TiB of system memory, and up to 15.2 TB of local NVMe SSD storage.",
-    "modules": [
-        "service/ec2"
-    ]
-}

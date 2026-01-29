@@ -1,3 +1,11 @@
+# Release (2026-01-29)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/ec2`: [v1.285.0](service/ec2/CHANGELOG.md#v12850-2026-01-29)
+  * **Feature**: G7e instances feature up to 8 NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs with 768 GB of memory and 5th generation Intel Xeon Scalable processors. Supporting up to 192 vCPUs, 1600 Gbps networking bandwidth with EFA, up to 2 TiB of system memory, and up to 15.2 TB of local NVMe SSD storage.
+* `github.com/aws/aws-sdk-go-v2/service/gamelift`: [v1.50.0](service/gamelift/CHANGELOG.md#v1500-2026-01-29)
+  * **Feature**: Amazon GameLift Servers now supports automatic scaling to and from zero instances based on game session activity. Fleets scale down to zero following a defined period of no game session activity and scale up from zero when game sessions are requested, providing an option for cost optimization.
+
 # Release (2026-01-28)
 
 ## General Highlights
