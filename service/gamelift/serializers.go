@@ -7970,6 +7970,23 @@ func awsAwsjson11_serializeDocumentLogConfiguration(v *types.LogConfiguration, v
 	return nil
 }
 
+func awsAwsjson11_serializeDocumentManagedCapacityConfiguration(v *types.ManagedCapacityConfiguration, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	if v.ScaleInAfterInactivityMinutes != nil {
+		ok := object.Key("ScaleInAfterInactivityMinutes")
+		ok.Integer(*v.ScaleInAfterInactivityMinutes)
+	}
+
+	if len(v.ZeroCapacityStrategy) > 0 {
+		ok := object.Key("ZeroCapacityStrategy")
+		ok.String(string(v.ZeroCapacityStrategy))
+	}
+
+	return nil
+}
+
 func awsAwsjson11_serializeDocumentMatchmakingConfigurationNameList(v []string, value smithyjson.Value) error {
 	array := value.Array()
 	defer array.Close()
@@ -11561,6 +11578,13 @@ func awsAwsjson11_serializeOpDocumentUpdateFleetCapacityInput(v *UpdateFleetCapa
 	if v.Location != nil {
 		ok := object.Key("Location")
 		ok.String(*v.Location)
+	}
+
+	if v.ManagedCapacityConfiguration != nil {
+		ok := object.Key("ManagedCapacityConfiguration")
+		if err := awsAwsjson11_serializeDocumentManagedCapacityConfiguration(v.ManagedCapacityConfiguration, ok); err != nil {
+			return err
+		}
 	}
 
 	if v.MaxSize != nil {

@@ -2576,3 +2576,22 @@ func (TerminationMode) Values() []TerminationMode {
 		"FORCE_TERMINATE",
 	}
 }
+
+type ZeroCapacityStrategy string
+
+// Enum values for ZeroCapacityStrategy
+const (
+	ZeroCapacityStrategyManual             ZeroCapacityStrategy = "MANUAL"
+	ZeroCapacityStrategyScaleToAndFromZero ZeroCapacityStrategy = "SCALE_TO_AND_FROM_ZERO"
+)
+
+// Values returns all known values for ZeroCapacityStrategy. Note that this can be
+// expanded in the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
+func (ZeroCapacityStrategy) Values() []ZeroCapacityStrategy {
+	return []ZeroCapacityStrategy{
+		"MANUAL",
+		"SCALE_TO_AND_FROM_ZERO",
+	}
+}

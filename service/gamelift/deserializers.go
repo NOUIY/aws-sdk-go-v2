@@ -17874,6 +17874,11 @@ func awsAwsjson11_deserializeDocumentFleetCapacity(v **types.FleetCapacity, valu
 				sv.Location = ptr.String(jtv)
 			}
 
+		case "ManagedCapacityConfiguration":
+			if err := awsAwsjson11_deserializeDocumentManagedCapacityConfiguration(&sv.ManagedCapacityConfiguration, value); err != nil {
+				return err
+			}
+
 		default:
 			_, _ = key, value
 
@@ -21170,6 +21175,59 @@ func awsAwsjson11_deserializeDocumentLogConfiguration(v **types.LogConfiguration
 					return fmt.Errorf("expected NonEmptyString to be of type string, got %T instead", value)
 				}
 				sv.S3BucketName = ptr.String(jtv)
+			}
+
+		default:
+			_, _ = key, value
+
+		}
+	}
+	*v = sv
+	return nil
+}
+
+func awsAwsjson11_deserializeDocumentManagedCapacityConfiguration(v **types.ManagedCapacityConfiguration, value interface{}) error {
+	if v == nil {
+		return fmt.Errorf("unexpected nil of type %T", v)
+	}
+	if value == nil {
+		return nil
+	}
+
+	shape, ok := value.(map[string]interface{})
+	if !ok {
+		return fmt.Errorf("unexpected JSON type %v", value)
+	}
+
+	var sv *types.ManagedCapacityConfiguration
+	if *v == nil {
+		sv = &types.ManagedCapacityConfiguration{}
+	} else {
+		sv = *v
+	}
+
+	for key, value := range shape {
+		switch key {
+		case "ScaleInAfterInactivityMinutes":
+			if value != nil {
+				jtv, ok := value.(json.Number)
+				if !ok {
+					return fmt.Errorf("expected ScaleInAfterInactivityMinutes to be json.Number, got %T instead", value)
+				}
+				i64, err := jtv.Int64()
+				if err != nil {
+					return err
+				}
+				sv.ScaleInAfterInactivityMinutes = ptr.Int32(int32(i64))
+			}
+
+		case "ZeroCapacityStrategy":
+			if value != nil {
+				jtv, ok := value.(string)
+				if !ok {
+					return fmt.Errorf("expected ZeroCapacityStrategy to be of type string, got %T instead", value)
+				}
+				sv.ZeroCapacityStrategy = types.ZeroCapacityStrategy(jtv)
 			}
 
 		default:
@@ -28576,6 +28634,11 @@ func awsAwsjson11_deserializeOpDocumentUpdateFleetCapacityOutput(v **UpdateFleet
 					return fmt.Errorf("expected LocationStringModel to be of type string, got %T instead", value)
 				}
 				sv.Location = ptr.String(jtv)
+			}
+
+		case "ManagedCapacityConfiguration":
+			if err := awsAwsjson11_deserializeDocumentManagedCapacityConfiguration(&sv.ManagedCapacityConfiguration, value); err != nil {
+				return err
 			}
 
 		default:
