@@ -283,25 +283,31 @@ func TestUploadOrderMultiDifferentPartSize(t *testing.T) {
 	}
 }
 
-func TestUploadFailIfPartSizeTooSmall(t *testing.T) {
-	mgr := New(s3.New(s3.Options{}), func(o *Options) {
+func TestUploadWithPartSizeIncreased(t *testing.T) {
+	c, ops, args := s3testing.NewUploadLoggingClient([]string{"CreateMultipartUpload", "CompleteMultipartUpload"})
+	mgr := New(c, func(o *Options) {
 		o.PartSizeBytes = 5
+		o.Concurrency = 1
 	})
-	resp, err := mgr.UploadObject(context.Background(), &UploadObjectInput{
+	_, err := mgr.UploadObject(context.Background(), &UploadObjectInput{
 		Bucket: aws.String("Bucket"),
 		Key:    aws.String("Key"),
 		Body:   bytes.NewReader(buf20MB),
 	})
 
-	if resp != nil {
-		t.Errorf("Expected response to be nil, but received %v", resp)
+	if err != nil {
+		t.Errorf("expect no error, got %v", err)
 	}
 
-	if err == nil {
-		t.Errorf("Expected error, but received nil")
+	// in this case the content length is 20971520 bytes, the calculated parts count will be
+	// 20971520 / 5 = 4194304 exceeding 10000 limit, so the part size increase to
+	// 20971520 / 10000 + 1 = 2098 bytes, and total parts uploaded will be 20971520 / 2098 = 9996
+	// (upper bound for last part)
+	if e, a := 9996, len(*ops); e != a {
+		t.Errorf("expect %d parts uploaded, got %d", e, a)
 	}
-	if e, a := "part size must be at least", err.Error(); !strings.Contains(a, e) {
-		t.Errorf("expect %v to be in %v", e, a)
+	if e, a := int64(2098), getReaderLength((*args)[0].(*s3.UploadPartInput).Body); e != a {
+		t.Errorf("expect updated part size to be %d, got %d", e, a)
 	}
 }
 
@@ -620,7 +626,7 @@ func TestUploadOrderMultiBufferedReaderJustExceedSinglePart(t *testing.T) {
 	_, err := mgr.UploadObject(context.Background(), &UploadObjectInput{
 		Bucket: aws.String("Bucket"),
 		Key:    aws.String("Key"),
-		Body:   &sizedReader{size: minPartSizeBytes + 1},
+		Body:   &sizedReader{size: defaultPartSizeBytes + 1},
 	})
 	if err != nil {
 		t.Errorf("expect no error, got %v", err)
@@ -861,13 +867,13 @@ func TestUploadUnexpectedEOF(t *testing.T) {
 	c, invocations, _ := s3testing.NewUploadLoggingClient(nil)
 	mgr := New(c, func(o *Options) {
 		o.Concurrency = 1
-		o.PartSizeBytes = minPartSizeBytes
+		o.PartSizeBytes = defaultPartSizeBytes
 	})
 	_, err := mgr.UploadObject(context.Background(), &UploadObjectInput{
 		Bucket: aws.String("Bucket"),
 		Key:    aws.String("Key"),
 		Body: &testIncompleteReader{
-			Size: minPartSizeBytes + 1,
+			Size: defaultPartSizeBytes + 1,
 		},
 	})
 	if err == nil {
@@ -942,7 +948,7 @@ func TestUploadWithContextCanceled(t *testing.T) {
 
 func TestUploadRetry(t *testing.T) {
 	const part, retries = 3, 10
-	testFile, testFileCleanup, err := createTempFile(t, minPartSizeBytes*part)
+	testFile, testFileCleanup, err := createTempFile(t, defaultPartSizeBytes*part)
 	if err != nil {
 		t.Fatalf("failed to create test file, %v", err)
 	}
@@ -953,13 +959,13 @@ func TestUploadRetry(t *testing.T) {
 		PartHandlers func(testing.TB) []http.Handler
 	}{
 		"bytes.Buffer": {
-			Body: bytes.NewBuffer(make([]byte, minPartSizeBytes*part)),
+			Body: bytes.NewBuffer(make([]byte, defaultPartSizeBytes*part)),
 			PartHandlers: func(tb testing.TB) []http.Handler {
 				return buildFailHandlers(tb, part, retries)
 			},
 		},
 		"bytes.Reader": {
-			Body: bytes.NewReader(make([]byte, minPartSizeBytes*part)),
+			Body: bytes.NewReader(make([]byte, defaultPartSizeBytes*part)),
 			PartHandlers: func(tb testing.TB) []http.Handler {
 				return buildFailHandlers(tb, part, retries)
 			},
