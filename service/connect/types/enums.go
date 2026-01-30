@@ -588,7 +588,8 @@ type ContactMetricName string
 
 // Enum values for ContactMetricName
 const (
-	ContactMetricNamePositionInQueue ContactMetricName = "POSITION_IN_QUEUE"
+	ContactMetricNameEstimatedWaitTime ContactMetricName = "ESTIMATED_WAIT_TIME"
+	ContactMetricNamePositionInQueue   ContactMetricName = "POSITION_IN_QUEUE"
 )
 
 // Values returns all known values for ContactMetricName. Note that this can be
@@ -597,6 +598,7 @@ const (
 // The ordering of this slice is not guaranteed to be stable across updates.
 func (ContactMetricName) Values() []ContactMetricName {
 	return []ContactMetricName{
+		"ESTIMATED_WAIT_TIME",
 		"POSITION_IN_QUEUE",
 	}
 }
@@ -693,6 +695,7 @@ const (
 	CurrentMetricNameAgentsOnContact        CurrentMetricName = "AGENTS_ON_CONTACT"
 	CurrentMetricNameSlotsActive            CurrentMetricName = "SLOTS_ACTIVE"
 	CurrentMetricNameSlotsAvailable         CurrentMetricName = "SLOTS_AVAILABLE"
+	CurrentMetricNameEstimatedWaitTime      CurrentMetricName = "ESTIMATED_WAIT_TIME"
 )
 
 // Values returns all known values for CurrentMetricName. Note that this can be
@@ -714,6 +717,7 @@ func (CurrentMetricName) Values() []CurrentMetricName {
 		"AGENTS_ON_CONTACT",
 		"SLOTS_ACTIVE",
 		"SLOTS_AVAILABLE",
+		"ESTIMATED_WAIT_TIME",
 	}
 }
 

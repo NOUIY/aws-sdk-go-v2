@@ -1976,10 +1976,14 @@ type ContactFlowVersionSummary struct {
 	noSmithyDocumentSerde
 }
 
-// The object that contains information about metric being requested.
+// Contains the details of a metric to be retrieved for a contact. Use this object
+// to specify which contact level metrics you want to include in your
+// GetContactMetrics request.
 type ContactMetricInfo struct {
 
-	// The name of the metric being retrieved in type String.
+	// The name of the metric to retrieve. Supported values are POSITION_IN_QUEUE
+	// (returns the contact's current position in the queue) and ESTIMATED_WAIT_TIME
+	// (returns the predicted wait time in seconds).
 	//
 	// This member is required.
 	Name ContactMetricName
@@ -1987,15 +1991,19 @@ type ContactMetricInfo struct {
 	noSmithyDocumentSerde
 }
 
-// Object containing information about metric requested for the contact.
+// Contains the result of a requested metric for the contact. This object is
+// returned as part of the GetContactMetrics response and includes both the metric
+// name and its calculated value.
 type ContactMetricResult struct {
 
-	// The name of the metric being retrieved in type String.
+	// The name of the metric that was retrieved. This corresponds to the metric name
+	// specified in the request, such as POSITION_IN_QUEUE or ESTIMATED_WAIT_TIME.
 	//
 	// This member is required.
 	Name ContactMetricName
 
-	// Object result associated with the metric received.
+	// The calculated value for the requested metric. This object contains the numeric
+	// result based on the contact's current state in the queue.
 	//
 	// This member is required.
 	Value ContactMetricValue
@@ -2003,7 +2011,7 @@ type ContactMetricResult struct {
 	noSmithyDocumentSerde
 }
 
-// Object which contains the number.
+// Contains the numeric value of a contact metric result.
 //
 // The following types satisfy this interface:
 //
@@ -2012,7 +2020,10 @@ type ContactMetricValue interface {
 	isContactMetricValue()
 }
 
-// The number of type Double. This number is the contact's position in queue.
+// The numeric value of the metric result. For POSITION_IN_QUEUE, this represents
+// the contact's current position in the queue (e.g., 3.00 means third in line).
+// For ESTIMATED_WAIT_TIME, this represents the predicted wait time in seconds
+// (e.g., 120.00 means approximately 2 minutes).
 type ContactMetricValueMemberNumber struct {
 	Value float64
 
