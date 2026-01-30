@@ -1,3 +1,7 @@
+# v1.102.0 (2026-01-30)
+
+* **Feature**: Improve SessionTag usage guidelines in the GenerateEmbedURLForAnonymousUser API documentation. Update the GetIdentityContext document with the region support context.
+
 # v1.101.0 (2026-01-21)
 
 * **Feature**: Added documentation and model for sheet layout groups - allows sheet elements to be grouped, Added documentation and the feature enables admins to have granular control over connectors under actions, Updated API documentation for PDF Export in Snapshot Export APIs

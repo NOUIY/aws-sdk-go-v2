@@ -1,8 +1,0 @@
-{
-    "id": "bb413c25-c97d-4a7b-9fb3-dd1834cbfa60",
-    "type": "feature",
-    "description": "Improve SessionTag usage guidelines in the GenerateEmbedURLForAnonymousUser API documentation. Update the GetIdentityContext document with the region support context.",
-    "modules": [
-        "service/quicksight"
-    ]
-}

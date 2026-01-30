@@ -1,3 +1,13 @@
+# Release (2026-01-30)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/feature/s3/transfermanager`: [v0.1.2](feature/s3/transfermanager/CHANGELOG.md#v012-2026-01-30)
+  * **Bug Fix**: Don't enforce the default part size as a minimum.
+* `github.com/aws/aws-sdk-go-v2/service/connect`: [v1.160.0](service/connect/CHANGELOG.md#v11600-2026-01-30)
+  * **Feature**: This release adds Estimated Wait Time support to the GetContactMetrics API for Amazon Connect.
+* `github.com/aws/aws-sdk-go-v2/service/quicksight`: [v1.102.0](service/quicksight/CHANGELOG.md#v11020-2026-01-30)
+  * **Feature**: Improve SessionTag usage guidelines in the GenerateEmbedURLForAnonymousUser API documentation. Update the GetIdentityContext document with the region support context.
+
 # Release (2026-01-29)
 
 ## Module Highlights

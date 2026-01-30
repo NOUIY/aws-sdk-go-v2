@@ -1,3 +1,7 @@
+# v1.160.0 (2026-01-30)
+
+* **Feature**: This release adds Estimated Wait Time support to the GetContactMetrics API for Amazon Connect.
+
 # v1.159.0 (2026-01-28)
 
 * **Feature**: Adds support for filtering search results based on tags assigned to contacts.

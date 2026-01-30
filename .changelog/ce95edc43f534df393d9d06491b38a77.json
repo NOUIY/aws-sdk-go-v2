@@ -1,8 +1,0 @@
-{
-    "id": "ce95edc4-3f53-4df3-93d9-d06491b38a77",
-    "type": "feature",
-    "description": "This release adds Estimated Wait Time support to the GetContactMetrics API for Amazon Connect.",
-    "modules": [
-        "service/connect"
-    ]
-}
