@@ -1,8 +1,0 @@
-{
-    "id": "47e64c9c-3584-4208-a5fe-5c398c0e8ba8",
-    "type": "feature",
-    "description": "Updates to multi-party approval (MPA) service to add support for multi-factor authentication (MFA) for voting operations.",
-    "modules": [
-        "service/mpa"
-    ]
-}

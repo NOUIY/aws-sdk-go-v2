@@ -1,3 +1,7 @@
+# v1.6.0 (2026-02-02)
+
+* **Feature**: Updates to multi-party approval (MPA) service to add support for multi-factor authentication (MFA) for voting operations.
+
 # v1.5.9 (2026-01-09)
 
 * **Dependency Update**: Updated to the latest SDK module versions

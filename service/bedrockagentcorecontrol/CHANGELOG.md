@@ -1,3 +1,7 @@
+# v1.18.0 (2026-02-02)
+
+* **Feature**: Adds tagging support for AgentCore Evaluations (evaluator and online evaluation config)
+
 # v1.17.0 (2026-01-09)
 
 * **Feature**: Adds optional field "view" to GetMemory API input to give customers control over whether CMK encrypted data such as strategy decryption or override prompts is returned or not.

@@ -1,3 +1,7 @@
+# v1.33.0 (2026-02-02)
+
+* **Feature**: Marked service APIs as deprecated. This service has reached end-of-life. https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/
+
 # v1.32.18 (2026-01-09)
 
 * **Dependency Update**: Updated to the latest SDK module versions

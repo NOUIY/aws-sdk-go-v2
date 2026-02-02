@@ -1,3 +1,15 @@
+# Release (2026-02-02)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/bedrockagentcorecontrol`: [v1.18.0](service/bedrockagentcorecontrol/CHANGELOG.md#v1180-2026-02-02)
+  * **Feature**: Adds tagging support for AgentCore Evaluations (evaluator and online evaluation config)
+* `github.com/aws/aws-sdk-go-v2/service/cloudfront`: [v1.60.0](service/cloudfront/CHANGELOG.md#v1600-2026-02-02)
+  * **Feature**: Add OriginMTLS support to CloudFront Distribution APIs
+* `github.com/aws/aws-sdk-go-v2/service/elastictranscoder`: [v1.33.0](service/elastictranscoder/CHANGELOG.md#v1330-2026-02-02)
+  * **Feature**: Marked service APIs as deprecated. This service has reached end-of-life. https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/
+* `github.com/aws/aws-sdk-go-v2/service/mpa`: [v1.6.0](service/mpa/CHANGELOG.md#v160-2026-02-02)
+  * **Feature**: Updates to multi-party approval (MPA) service to add support for multi-factor authentication (MFA) for voting operations.
+
 # Release (2026-01-30)
 
 ## Module Highlights
