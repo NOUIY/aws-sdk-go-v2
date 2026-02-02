@@ -19,6 +19,24 @@ func (ActionCompletionStrategy) Values() []ActionCompletionStrategy {
 	}
 }
 
+type AdditionalSecurityRequirement string
+
+// Enum values for AdditionalSecurityRequirement
+const (
+	AdditionalSecurityRequirementApproverVerificationRequired AdditionalSecurityRequirement = "APPROVER_VERIFICATION_REQUIRED"
+)
+
+// Values returns all known values for AdditionalSecurityRequirement. Note that
+// this can be expanded in the future, and so it is only as up to date as the
+// client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
+func (AdditionalSecurityRequirement) Values() []AdditionalSecurityRequirement {
+	return []AdditionalSecurityRequirement{
+		"APPROVER_VERIFICATION_REQUIRED",
+	}
+}
+
 type ApprovalTeamStatus string
 
 // Enum values for ApprovalTeamStatus
@@ -194,6 +212,42 @@ func (IdentityStatus) Values() []IdentityStatus {
 	}
 }
 
+type MfaSyncStatus string
+
+// Enum values for MfaSyncStatus
+const (
+	MfaSyncStatusInSync    MfaSyncStatus = "IN_SYNC"
+	MfaSyncStatusOutOfSync MfaSyncStatus = "OUT_OF_SYNC"
+)
+
+// Values returns all known values for MfaSyncStatus. Note that this can be
+// expanded in the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
+func (MfaSyncStatus) Values() []MfaSyncStatus {
+	return []MfaSyncStatus{
+		"IN_SYNC",
+		"OUT_OF_SYNC",
+	}
+}
+
+type MfaType string
+
+// Enum values for MfaType
+const (
+	MfaTypeEmailOtp MfaType = "EMAIL_OTP"
+)
+
+// Values returns all known values for MfaType. Note that this can be expanded in
+// the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
+func (MfaType) Values() []MfaType {
+	return []MfaType{
+		"EMAIL_OTP",
+	}
+}
+
 type Operator string
 
 // Enum values for Operator
@@ -350,5 +404,22 @@ func (SessionStatusCode) Values() []SessionStatusCode {
 		"REJECTED",
 		"EXPIRED",
 		"CONFIGURATION_CHANGED",
+	}
+}
+
+type UpdateAction string
+
+// Enum values for UpdateAction
+const (
+	UpdateActionSynchronizeMfaDevices UpdateAction = "SYNCHRONIZE_MFA_DEVICES"
+)
+
+// Values returns all known values for UpdateAction. Note that this can be
+// expanded in the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
+func (UpdateAction) Values() []UpdateAction {
+	return []UpdateAction{
+		"SYNCHRONIZE_MFA_DEVICES",
 	}
 }

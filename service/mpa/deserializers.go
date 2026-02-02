@@ -1773,6 +1773,11 @@ func awsRestjson1_deserializeOpDocumentGetSessionOutput(v **GetSessionOutput, va
 				sv.ActionName = ptr.String(jtv)
 			}
 
+		case "AdditionalSecurityRequirements":
+			if err := awsRestjson1_deserializeDocumentAdditionalSecurityRequirements(&sv.AdditionalSecurityRequirements, value); err != nil {
+				return err
+			}
+
 		case "ApprovalStrategy":
 			if err := awsRestjson1_deserializeDocumentApprovalStrategyResponse(&sv.ApprovalStrategy, value); err != nil {
 				return err
@@ -4097,6 +4102,42 @@ func awsRestjson1_deserializeDocumentAccessDeniedException(v **types.AccessDenie
 	return nil
 }
 
+func awsRestjson1_deserializeDocumentAdditionalSecurityRequirements(v *[]types.AdditionalSecurityRequirement, value interface{}) error {
+	if v == nil {
+		return fmt.Errorf("unexpected nil of type %T", v)
+	}
+	if value == nil {
+		return nil
+	}
+
+	shape, ok := value.([]interface{})
+	if !ok {
+		return fmt.Errorf("unexpected JSON type %v", value)
+	}
+
+	var cv []types.AdditionalSecurityRequirement
+	if *v == nil {
+		cv = []types.AdditionalSecurityRequirement{}
+	} else {
+		cv = *v
+	}
+
+	for _, value := range shape {
+		var col types.AdditionalSecurityRequirement
+		if value != nil {
+			jtv, ok := value.(string)
+			if !ok {
+				return fmt.Errorf("expected AdditionalSecurityRequirement to be of type string, got %T instead", value)
+			}
+			col = types.AdditionalSecurityRequirement(jtv)
+		}
+		cv = append(cv, col)
+
+	}
+	*v = cv
+	return nil
+}
+
 func awsRestjson1_deserializeDocumentApprovalStrategyResponse(v *types.ApprovalStrategyResponse, value interface{}) error {
 	if v == nil {
 		return fmt.Errorf("unexpected nil of type %T", v)
@@ -4206,6 +4247,11 @@ func awsRestjson1_deserializeDocumentGetApprovalTeamResponseApprover(v **types.G
 					return fmt.Errorf("expected ParticipantId to be of type string, got %T instead", value)
 				}
 				sv.ApproverId = ptr.String(jtv)
+			}
+
+		case "MfaMethods":
+			if err := awsRestjson1_deserializeDocumentMfaMethods(&sv.MfaMethods, value); err != nil {
+				return err
 			}
 
 		case "PrimaryIdentityId":
@@ -5091,6 +5137,11 @@ func awsRestjson1_deserializeDocumentListSessionsResponseSession(v **types.ListS
 				sv.ActionName = ptr.String(jtv)
 			}
 
+		case "AdditionalSecurityRequirements":
+			if err := awsRestjson1_deserializeDocumentAdditionalSecurityRequirements(&sv.AdditionalSecurityRequirements, value); err != nil {
+				return err
+			}
+
 		case "ApprovalTeamArn":
 			if value != nil {
 				jtv, ok := value.(string)
@@ -5271,6 +5322,89 @@ func awsRestjson1_deserializeDocumentListSessionsResponseSessions(v *[]types.Lis
 		var col types.ListSessionsResponseSession
 		destAddr := &col
 		if err := awsRestjson1_deserializeDocumentListSessionsResponseSession(&destAddr, value); err != nil {
+			return err
+		}
+		col = *destAddr
+		cv = append(cv, col)
+
+	}
+	*v = cv
+	return nil
+}
+
+func awsRestjson1_deserializeDocumentMfaMethod(v **types.MfaMethod, value interface{}) error {
+	if v == nil {
+		return fmt.Errorf("unexpected nil of type %T", v)
+	}
+	if value == nil {
+		return nil
+	}
+
+	shape, ok := value.(map[string]interface{})
+	if !ok {
+		return fmt.Errorf("unexpected JSON type %v", value)
+	}
+
+	var sv *types.MfaMethod
+	if *v == nil {
+		sv = &types.MfaMethod{}
+	} else {
+		sv = *v
+	}
+
+	for key, value := range shape {
+		switch key {
+		case "SyncStatus":
+			if value != nil {
+				jtv, ok := value.(string)
+				if !ok {
+					return fmt.Errorf("expected MfaSyncStatus to be of type string, got %T instead", value)
+				}
+				sv.SyncStatus = types.MfaSyncStatus(jtv)
+			}
+
+		case "Type":
+			if value != nil {
+				jtv, ok := value.(string)
+				if !ok {
+					return fmt.Errorf("expected MfaType to be of type string, got %T instead", value)
+				}
+				sv.Type = types.MfaType(jtv)
+			}
+
+		default:
+			_, _ = key, value
+
+		}
+	}
+	*v = sv
+	return nil
+}
+
+func awsRestjson1_deserializeDocumentMfaMethods(v *[]types.MfaMethod, value interface{}) error {
+	if v == nil {
+		return fmt.Errorf("unexpected nil of type %T", v)
+	}
+	if value == nil {
+		return nil
+	}
+
+	shape, ok := value.([]interface{})
+	if !ok {
+		return fmt.Errorf("unexpected JSON type %v", value)
+	}
+
+	var cv []types.MfaMethod
+	if *v == nil {
+		cv = []types.MfaMethod{}
+	} else {
+		cv = *v
+	}
+
+	for _, value := range shape {
+		var col types.MfaMethod
+		destAddr := &col
+		if err := awsRestjson1_deserializeDocumentMfaMethod(&destAddr, value); err != nil {
 			return err
 		}
 		col = *destAddr

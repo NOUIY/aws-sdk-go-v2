@@ -1762,6 +1762,13 @@ func awsRestjson1_serializeOpDocumentUpdateApprovalTeamInput(v *UpdateApprovalTe
 		ok.String(*v.Description)
 	}
 
+	if v.UpdateActions != nil {
+		ok := object.Key("UpdateActions")
+		if err := awsRestjson1_serializeDocumentUpdateActions(v.UpdateActions, ok); err != nil {
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -1934,6 +1941,17 @@ func awsRestjson1_serializeDocumentTags(v map[string]string, value smithyjson.Va
 	for key := range v {
 		om := object.Key(key)
 		om.String(v[key])
+	}
+	return nil
+}
+
+func awsRestjson1_serializeDocumentUpdateActions(v []types.UpdateAction, value smithyjson.Value) error {
+	array := value.Array()
+	defer array.Close()
+
+	for i := range v {
+		av := array.Value()
+		av.String(string(v[i]))
 	}
 	return nil
 }

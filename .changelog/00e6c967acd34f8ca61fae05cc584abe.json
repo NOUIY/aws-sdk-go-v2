@@ -1,0 +1,8 @@
+{
+    "id": "00e6c967-acd3-4f8c-a61f-ae05cc584abe",
+    "type": "feature",
+    "description": "Adds tagging support for AgentCore Evaluations (evaluator and online evaluation config)",
+    "modules": [
+        "service/bedrockagentcorecontrol"
+    ]
+}

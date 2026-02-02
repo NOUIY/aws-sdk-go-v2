@@ -713,6 +713,13 @@ func awsRestjson1_serializeOpDocumentCreateEvaluatorInput(v *CreateEvaluatorInpu
 		ok.String(string(v.Level))
 	}
 
+	if v.Tags != nil {
+		ok := object.Key("tags")
+		if err := awsRestjson1_serializeDocumentTagsMap(v.Tags, ok); err != nil {
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -1327,6 +1334,13 @@ func awsRestjson1_serializeOpDocumentCreateOnlineEvaluationConfigInput(v *Create
 	if v.Rule != nil {
 		ok := object.Key("rule")
 		if err := awsRestjson1_serializeDocumentRule(v.Rule, ok); err != nil {
+			return err
+		}
+	}
+
+	if v.Tags != nil {
+		ok := object.Key("tags")
+		if err := awsRestjson1_serializeDocumentTagsMap(v.Tags, ok); err != nil {
 			return err
 		}
 	}

@@ -1,0 +1,8 @@
+{
+    "id": "c42f48b0-538c-432b-b87a-8a90f02c9ed1",
+    "type": "feature",
+    "description": "Add OriginMTLS support to CloudFront Distribution APIs",
+    "modules": [
+        "service/cloudfront"
+    ]
+}
