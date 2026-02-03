@@ -1,3 +1,7 @@
+# v1.59.0 (2026-02-03)
+
+* **Feature**: AWS Batch Array Job Visibility feature support. Includes new statusSummaryLastUpdatedAt for array job parent DescribeJobs responses for the last time the statusSummary was updated. Includes both statusSummary and statusSummaryLastUpdatedAt in ListJobs responses for array job parents.
+
 # v1.58.12 (2026-01-09)
 
 * **Dependency Update**: Updated to the latest SDK module versions

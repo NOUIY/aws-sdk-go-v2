@@ -1,8 +1,0 @@
-{
-    "id": "34402ba7-3e07-47c1-bd52-720fa205d1ad",
-    "type": "feature",
-    "description": "Adds support for Catalog API us-east-1 dualstack endpoint catalog-marketplace.us-east-1.api.aws",
-    "modules": [
-        "service/marketplacecatalog"
-    ]
-}

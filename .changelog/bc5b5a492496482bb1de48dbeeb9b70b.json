@@ -1,8 +1,0 @@
-{
-    "id": "bc5b5a49-2496-482b-b1de-48dbeeb9b70b",
-    "type": "feature",
-    "description": "AWS Batch Array Job Visibility feature support. Includes new statusSummaryLastUpdatedAt for array job parent DescribeJobs responses for the last time the statusSummary was updated. Includes both statusSummary and statusSummaryLastUpdatedAt in ListJobs responses for array job parents.",
-    "modules": [
-        "service/batch"
-    ]
-}

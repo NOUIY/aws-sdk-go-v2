@@ -1,3 +1,7 @@
+# v1.39.0 (2026-02-03)
+
+* **Feature**: Adds support for Catalog API us-east-1 dualstack endpoint catalog-marketplace.us-east-1.api.aws
+
 # v1.38.3 (2026-01-09)
 
 * **Dependency Update**: Updated to the latest SDK module versions

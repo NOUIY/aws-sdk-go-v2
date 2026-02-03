@@ -1,3 +1,24 @@
+# Release (2026-02-03)
+
+## General Highlights
+* **Dependency Update**: Updated to the latest SDK module versions
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/batch`: [v1.59.0](service/batch/CHANGELOG.md#v1590-2026-02-03)
+  * **Feature**: AWS Batch Array Job Visibility feature support. Includes new statusSummaryLastUpdatedAt for array job parent DescribeJobs responses for the last time the statusSummary was updated. Includes both statusSummary and statusSummaryLastUpdatedAt in ListJobs responses for array job parents.
+* `github.com/aws/aws-sdk-go-v2/service/dynamodb`: [v1.55.0](service/dynamodb/CHANGELOG.md#v1550-2026-02-03)
+  * **Feature**: This change supports the creation of multi-account global tables. It adds two new arguments to CreateTable, GlobalTableSourceArn and GlobalTableSettingsReplicationMode. DescribeTable is also updated to include information about GlobalTableSettingsReplicationMode.
+* `github.com/aws/aws-sdk-go-v2/service/geomaps`: [v1.9.0](service/geomaps/CHANGELOG.md#v190-2026-02-03)
+  * **Feature**: Added support for optional style parameters in maps, including 3D terrain and 3D Buildings
+* `github.com/aws/aws-sdk-go-v2/service/kinesis`: [v1.43.0](service/kinesis/CHANGELOG.md#v1430-2026-02-03)
+  * **Feature**: Adds StreamId parameter to AWS Kinesis Data Streams APIs that is reserved for future use.
+* `github.com/aws/aws-sdk-go-v2/service/marketplacecatalog`: [v1.39.0](service/marketplacecatalog/CHANGELOG.md#v1390-2026-02-03)
+  * **Feature**: Adds support for Catalog API us-east-1 dualstack endpoint catalog-marketplace.us-east-1.api.aws
+* `github.com/aws/aws-sdk-go-v2/service/organizations`: [v1.50.2](service/organizations/CHANGELOG.md#v1502-2026-02-03)
+  * **Documentation**: Updated the CloseAccount description.
+* `github.com/aws/aws-sdk-go-v2/service/ssoadmin`: [v1.37.0](service/ssoadmin/CHANGELOG.md#v1370-2026-02-03)
+  * **Feature**: Added new Region management APIs to support multi-Region replication in IAM Identity Center.
+
 # Release (2026-02-02)
 
 ## Module Highlights

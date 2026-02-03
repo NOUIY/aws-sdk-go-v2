@@ -1,8 +1,0 @@
-{
-    "id": "f0d50814-898c-4e0e-b81f-b1423fb3ed18",
-    "type": "documentation",
-    "description": "Updated the CloseAccount description.",
-    "modules": [
-        "service/organizations"
-    ]
-}

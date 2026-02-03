@@ -1,3 +1,7 @@
+# v1.9.0 (2026-02-03)
+
+* **Feature**: Added support for optional style parameters in maps, including 3D terrain and 3D Buildings
+
 # v1.8.9 (2026-01-09)
 
 * **Dependency Update**: Updated to the latest SDK module versions

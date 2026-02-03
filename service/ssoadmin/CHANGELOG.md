@@ -1,3 +1,7 @@
+# v1.37.0 (2026-02-03)
+
+* **Feature**: Added new Region management APIs to support multi-Region replication in IAM Identity Center.
+
 # v1.36.14 (2026-01-09)
 
 * **Dependency Update**: Updated to the latest SDK module versions

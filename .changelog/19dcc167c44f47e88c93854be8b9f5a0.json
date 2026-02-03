@@ -1,8 +1,0 @@
-{
-    "id": "19dcc167-c44f-47e8-8c93-854be8b9f5a0",
-    "type": "feature",
-    "description": "Added support for optional style parameters in maps, including 3D terrain and 3D Buildings",
-    "modules": [
-        "service/geomaps"
-    ]
-}
