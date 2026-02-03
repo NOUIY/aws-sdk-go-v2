@@ -29,6 +29,10 @@ type ArrayPropertiesDetail struct {
 	// This parameter is returned for parent array jobs.
 	StatusSummary map[string]int32
 
+	// The Unix timestamp (in milliseconds) for when the statusSummary was last
+	// updated.
+	StatusSummaryLastUpdatedAt *int64
+
 	noSmithyDocumentSerde
 }
 
@@ -41,6 +45,14 @@ type ArrayPropertiesSummary struct {
 
 	// The size of the array job. This parameter is returned for parent array jobs.
 	Size *int32
+
+	// A summary of the number of array job children in each available job status.
+	// This parameter is returned for parent array jobs.
+	StatusSummary map[string]int32
+
+	// The Unix timestamp (in milliseconds) for when the statusSummary was last
+	// updated.
+	StatusSummaryLastUpdatedAt *int64
 
 	noSmithyDocumentSerde
 }

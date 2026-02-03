@@ -5984,6 +5984,19 @@ func awsRestjson1_deserializeDocumentArrayPropertiesDetail(v **types.ArrayProper
 				return err
 			}
 
+		case "statusSummaryLastUpdatedAt":
+			if value != nil {
+				jtv, ok := value.(json.Number)
+				if !ok {
+					return fmt.Errorf("expected Long to be json.Number, got %T instead", value)
+				}
+				i64, err := jtv.Int64()
+				if err != nil {
+					return err
+				}
+				sv.StatusSummaryLastUpdatedAt = ptr.Int64(i64)
+			}
+
 		default:
 			_, _ = key, value
 
@@ -6039,6 +6052,24 @@ func awsRestjson1_deserializeDocumentArrayPropertiesSummary(v **types.ArrayPrope
 					return err
 				}
 				sv.Size = ptr.Int32(int32(i64))
+			}
+
+		case "statusSummary":
+			if err := awsRestjson1_deserializeDocumentArrayJobStatusSummary(&sv.StatusSummary, value); err != nil {
+				return err
+			}
+
+		case "statusSummaryLastUpdatedAt":
+			if value != nil {
+				jtv, ok := value.(json.Number)
+				if !ok {
+					return fmt.Errorf("expected Long to be json.Number, got %T instead", value)
+				}
+				i64, err := jtv.Int64()
+				if err != nil {
+					return err
+				}
+				sv.StatusSummaryLastUpdatedAt = ptr.Int64(i64)
 			}
 
 		default:

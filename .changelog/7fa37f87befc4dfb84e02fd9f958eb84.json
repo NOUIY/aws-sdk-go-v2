@@ -1,0 +1,8 @@
+{
+    "id": "7fa37f87-befc-4dfb-84e0-2fd9f958eb84",
+    "type": "feature",
+    "description": "Adds StreamId parameter to AWS Kinesis Data Streams APIs that is reserved for future use.",
+    "modules": [
+        "service/kinesis"
+    ]
+}

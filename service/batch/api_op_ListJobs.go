@@ -88,6 +88,11 @@ type ListJobsInput struct {
 	// parameter is specified, the jobStatus parameter is ignored and jobs with any
 	// status are returned. If you don't specify a status, only RUNNING jobs are
 	// returned.
+	//
+	// Array job parents are updated to PENDING when any child job is updated to
+	// RUNNABLE and remain in PENDING status while child jobs are running. To view
+	// these jobs, filter by PENDING status until all child jobs reach a terminal
+	// state.
 	JobStatus types.JobStatus
 
 	// The maximum number of results returned by ListJobs in a paginated output. When
