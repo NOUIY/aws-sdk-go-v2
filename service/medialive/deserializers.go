@@ -5018,6 +5018,11 @@ func awsRestjson1_deserializeOpDocumentDeleteChannelOutput(v **DeleteChannelOutp
 				return err
 			}
 
+		case "channelSecurityGroups":
+			if err := awsRestjson1_deserializeDocument__listOf__string(&sv.ChannelSecurityGroups, value); err != nil {
+				return err
+			}
+
 		case "destinations":
 			if err := awsRestjson1_deserializeDocument__listOfOutputDestination(&sv.Destinations, value); err != nil {
 				return err
@@ -8398,6 +8403,11 @@ func awsRestjson1_deserializeOpDocumentDescribeChannelOutput(v **DescribeChannel
 				return err
 			}
 
+		case "channelSecurityGroups":
+			if err := awsRestjson1_deserializeDocument__listOf__string(&sv.ChannelSecurityGroups, value); err != nil {
+				return err
+			}
+
 		case "destinations":
 			if err := awsRestjson1_deserializeDocument__listOfOutputDestination(&sv.Destinations, value); err != nil {
 				return err
@@ -9887,6 +9897,11 @@ func awsRestjson1_deserializeOpDocumentDescribeInputSecurityGroupOutput(v **Desc
 					return fmt.Errorf("expected __string to be of type string, got %T instead", value)
 				}
 				sv.Arn = ptr.String(jtv)
+			}
+
+		case "channels":
+			if err := awsRestjson1_deserializeDocument__listOf__string(&sv.Channels, value); err != nil {
+				return err
 			}
 
 		case "id":
@@ -18213,6 +18228,11 @@ func awsRestjson1_deserializeOpDocumentRestartChannelPipelinesOutput(v **Restart
 				return err
 			}
 
+		case "channelSecurityGroups":
+			if err := awsRestjson1_deserializeDocument__listOf__string(&sv.ChannelSecurityGroups, value); err != nil {
+				return err
+			}
+
 		case "destinations":
 			if err := awsRestjson1_deserializeDocument__listOfOutputDestination(&sv.Destinations, value); err != nil {
 				return err
@@ -18528,6 +18548,11 @@ func awsRestjson1_deserializeOpDocumentStartChannelOutput(v **StartChannelOutput
 
 		case "channelEngineVersion":
 			if err := awsRestjson1_deserializeDocumentChannelEngineVersionResponse(&sv.ChannelEngineVersion, value); err != nil {
+				return err
+			}
+
+		case "channelSecurityGroups":
+			if err := awsRestjson1_deserializeDocument__listOf__string(&sv.ChannelSecurityGroups, value); err != nil {
 				return err
 			}
 
@@ -20229,6 +20254,11 @@ func awsRestjson1_deserializeOpDocumentStopChannelOutput(v **StopChannelOutput, 
 
 		case "channelEngineVersion":
 			if err := awsRestjson1_deserializeDocumentChannelEngineVersionResponse(&sv.ChannelEngineVersion, value); err != nil {
+				return err
+			}
+
+		case "channelSecurityGroups":
+			if err := awsRestjson1_deserializeDocument__listOf__string(&sv.ChannelSecurityGroups, value); err != nil {
 				return err
 			}
 
@@ -31330,6 +31360,11 @@ func awsRestjson1_deserializeDocumentChannel(v **types.Channel, value interface{
 				return err
 			}
 
+		case "channelSecurityGroups":
+			if err := awsRestjson1_deserializeDocument__listOf__string(&sv.ChannelSecurityGroups, value); err != nil {
+				return err
+			}
+
 		case "destinations":
 			if err := awsRestjson1_deserializeDocument__listOfOutputDestination(&sv.Destinations, value); err != nil {
 				return err
@@ -31694,6 +31729,11 @@ func awsRestjson1_deserializeDocumentChannelSummary(v **types.ChannelSummary, va
 
 		case "channelEngineVersion":
 			if err := awsRestjson1_deserializeDocumentChannelEngineVersionResponse(&sv.ChannelEngineVersion, value); err != nil {
+				return err
+			}
+
+		case "channelSecurityGroups":
+			if err := awsRestjson1_deserializeDocument__listOf__string(&sv.ChannelSecurityGroups, value); err != nil {
 				return err
 			}
 
@@ -40080,6 +40120,11 @@ func awsRestjson1_deserializeDocumentInputSecurityGroup(v **types.InputSecurityG
 				sv.Arn = ptr.String(jtv)
 			}
 
+		case "channels":
+			if err := awsRestjson1_deserializeDocument__listOf__string(&sv.Channels, value); err != nil {
+				return err
+			}
+
 		case "id":
 			if value != nil {
 				jtv, ok := value.(string)
@@ -44857,6 +44902,11 @@ func awsRestjson1_deserializeDocumentNodeInterfaceMapping(v **types.NodeInterfac
 				sv.NetworkInterfaceMode = types.NetworkInterfaceMode(jtv)
 			}
 
+		case "physicalInterfaceIpAddresses":
+			if err := awsRestjson1_deserializeDocument__listOf__string(&sv.PhysicalInterfaceIpAddresses, value); err != nil {
+				return err
+			}
+
 		case "physicalInterfaceName":
 			if value != nil {
 				jtv, ok := value.(string)
@@ -48443,6 +48493,113 @@ func awsRestjson1_deserializeDocumentSrtGroupSettings(v **types.SrtGroupSettings
 	return nil
 }
 
+func awsRestjson1_deserializeDocumentSrtListenerDecryption(v **types.SrtListenerDecryption, value interface{}) error {
+	if v == nil {
+		return fmt.Errorf("unexpected nil of type %T", v)
+	}
+	if value == nil {
+		return nil
+	}
+
+	shape, ok := value.(map[string]interface{})
+	if !ok {
+		return fmt.Errorf("unexpected JSON type %v", value)
+	}
+
+	var sv *types.SrtListenerDecryption
+	if *v == nil {
+		sv = &types.SrtListenerDecryption{}
+	} else {
+		sv = *v
+	}
+
+	for key, value := range shape {
+		switch key {
+		case "algorithm":
+			if value != nil {
+				jtv, ok := value.(string)
+				if !ok {
+					return fmt.Errorf("expected Algorithm to be of type string, got %T instead", value)
+				}
+				sv.Algorithm = types.Algorithm(jtv)
+			}
+
+		case "passphraseSecretArn":
+			if value != nil {
+				jtv, ok := value.(string)
+				if !ok {
+					return fmt.Errorf("expected __string to be of type string, got %T instead", value)
+				}
+				sv.PassphraseSecretArn = ptr.String(jtv)
+			}
+
+		default:
+			_, _ = key, value
+
+		}
+	}
+	*v = sv
+	return nil
+}
+
+func awsRestjson1_deserializeDocumentSrtListenerSettings(v **types.SrtListenerSettings, value interface{}) error {
+	if v == nil {
+		return fmt.Errorf("unexpected nil of type %T", v)
+	}
+	if value == nil {
+		return nil
+	}
+
+	shape, ok := value.(map[string]interface{})
+	if !ok {
+		return fmt.Errorf("unexpected JSON type %v", value)
+	}
+
+	var sv *types.SrtListenerSettings
+	if *v == nil {
+		sv = &types.SrtListenerSettings{}
+	} else {
+		sv = *v
+	}
+
+	for key, value := range shape {
+		switch key {
+		case "decryption":
+			if err := awsRestjson1_deserializeDocumentSrtListenerDecryption(&sv.Decryption, value); err != nil {
+				return err
+			}
+
+		case "minimumLatency":
+			if value != nil {
+				jtv, ok := value.(json.Number)
+				if !ok {
+					return fmt.Errorf("expected __integer to be json.Number, got %T instead", value)
+				}
+				i64, err := jtv.Int64()
+				if err != nil {
+					return err
+				}
+				sv.MinimumLatency = ptr.Int32(int32(i64))
+			}
+
+		case "streamId":
+			if value != nil {
+				jtv, ok := value.(string)
+				if !ok {
+					return fmt.Errorf("expected __string to be of type string, got %T instead", value)
+				}
+				sv.StreamId = ptr.String(jtv)
+			}
+
+		default:
+			_, _ = key, value
+
+		}
+	}
+	*v = sv
+	return nil
+}
+
 func awsRestjson1_deserializeDocumentSrtOutputDestinationSettings(v **types.SrtOutputDestinationSettings, value interface{}) error {
 	if v == nil {
 		return fmt.Errorf("unexpected nil of type %T", v)
@@ -48465,6 +48622,15 @@ func awsRestjson1_deserializeDocumentSrtOutputDestinationSettings(v **types.SrtO
 
 	for key, value := range shape {
 		switch key {
+		case "connectionMode":
+			if value != nil {
+				jtv, ok := value.(string)
+				if !ok {
+					return fmt.Errorf("expected ConnectionMode to be of type string, got %T instead", value)
+				}
+				sv.ConnectionMode = types.ConnectionMode(jtv)
+			}
+
 		case "encryptionPassphraseSecretArn":
 			if value != nil {
 				jtv, ok := value.(string)
@@ -48472,6 +48638,19 @@ func awsRestjson1_deserializeDocumentSrtOutputDestinationSettings(v **types.SrtO
 					return fmt.Errorf("expected __string to be of type string, got %T instead", value)
 				}
 				sv.EncryptionPassphraseSecretArn = ptr.String(jtv)
+			}
+
+		case "listenerPort":
+			if value != nil {
+				jtv, ok := value.(json.Number)
+				if !ok {
+					return fmt.Errorf("expected __integerMin1Max65535 to be json.Number, got %T instead", value)
+				}
+				i64, err := jtv.Int64()
+				if err != nil {
+					return err
+				}
+				sv.ListenerPort = ptr.Int32(int32(i64))
 			}
 
 		case "streamId":
@@ -48601,6 +48780,11 @@ func awsRestjson1_deserializeDocumentSrtSettings(v **types.SrtSettings, value in
 		switch key {
 		case "srtCallerSources":
 			if err := awsRestjson1_deserializeDocument__listOfSrtCallerSource(&sv.SrtCallerSources, value); err != nil {
+				return err
+			}
+
+		case "srtListenerSettings":
+			if err := awsRestjson1_deserializeDocumentSrtListenerSettings(&sv.SrtListenerSettings, value); err != nil {
 				return err
 			}
 

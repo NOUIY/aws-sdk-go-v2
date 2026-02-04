@@ -44,6 +44,9 @@ type UpdateChannelInput struct {
 	// Channel engine version for this channel
 	ChannelEngineVersion *types.ChannelEngineVersionRequest
 
+	// A list of IDs for all the Input Security Groups attached to the channel.
+	ChannelSecurityGroups []string
+
 	// A list of output destinations for this channel.
 	Destinations []types.OutputDestination
 

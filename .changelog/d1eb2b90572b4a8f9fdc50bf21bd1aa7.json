@@ -1,0 +1,8 @@
+{
+    "id": "d1eb2b90-572b-4a8f-9fdc-50bf21bd1aa7",
+    "type": "feature",
+    "description": "AWS Elemental MediaLive now supports SRT listener mode for inputs and outputs, in addition to the existing SRT caller mode.",
+    "modules": [
+        "service/medialive"
+    ]
+}

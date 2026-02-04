@@ -255,6 +255,13 @@ func awsRestjson1_serializeOpDocumentConverseInput(v *ConverseInput, value smith
 		}
 	}
 
+	if v.OutputConfig != nil {
+		ok := object.Key("outputConfig")
+		if err := awsRestjson1_serializeDocumentOutputConfig(v.OutputConfig, ok); err != nil {
+			return err
+		}
+	}
+
 	if v.PerformanceConfig != nil {
 		ok := object.Key("performanceConfig")
 		if err := awsRestjson1_serializeDocumentPerformanceConfiguration(v.PerformanceConfig, ok); err != nil {
@@ -417,6 +424,13 @@ func awsRestjson1_serializeOpDocumentConverseStreamInput(v *ConverseStreamInput,
 	if v.Messages != nil {
 		ok := object.Key("messages")
 		if err := awsRestjson1_serializeDocumentMessages(v.Messages, ok); err != nil {
+			return err
+		}
+	}
+
+	if v.OutputConfig != nil {
+		ok := object.Key("outputConfig")
+		if err := awsRestjson1_serializeDocumentOutputConfig(v.OutputConfig, ok); err != nil {
 			return err
 		}
 	}
@@ -2072,6 +2086,28 @@ func awsRestjson1_serializeDocumentInvokeModelTokensRequest(v *types.InvokeModel
 	return nil
 }
 
+func awsRestjson1_serializeDocumentJsonSchemaDefinition(v *types.JsonSchemaDefinition, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	if v.Description != nil {
+		ok := object.Key("description")
+		ok.String(*v.Description)
+	}
+
+	if v.Name != nil {
+		ok := object.Key("name")
+		ok.String(*v.Name)
+	}
+
+	if v.Schema != nil {
+		ok := object.Key("schema")
+		ok.String(*v.Schema)
+	}
+
+	return nil
+}
+
 func awsRestjson1_serializeDocumentMessage(v *types.Message, value smithyjson.Value) error {
 	object := value.Object()
 	defer object.Close()
@@ -2126,6 +2162,57 @@ func awsRestjson1_serializeDocumentNonEmptyStringList(v []string, value smithyjs
 	for i := range v {
 		av := array.Value()
 		av.String(v[i])
+	}
+	return nil
+}
+
+func awsRestjson1_serializeDocumentOutputConfig(v *types.OutputConfig, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	if v.TextFormat != nil {
+		ok := object.Key("textFormat")
+		if err := awsRestjson1_serializeDocumentOutputFormat(v.TextFormat, ok); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func awsRestjson1_serializeDocumentOutputFormat(v *types.OutputFormat, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	if v.Structure != nil {
+		ok := object.Key("structure")
+		if err := awsRestjson1_serializeDocumentOutputFormatStructure(v.Structure, ok); err != nil {
+			return err
+		}
+	}
+
+	if len(v.Type) > 0 {
+		ok := object.Key("type")
+		ok.String(string(v.Type))
+	}
+
+	return nil
+}
+
+func awsRestjson1_serializeDocumentOutputFormatStructure(v types.OutputFormatStructure, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	switch uv := v.(type) {
+	case *types.OutputFormatStructureMemberJsonSchema:
+		av := object.Key("jsonSchema")
+		if err := awsRestjson1_serializeDocumentJsonSchemaDefinition(&uv.Value, av); err != nil {
+			return err
+		}
+
+	default:
+		return fmt.Errorf("attempted to serialize unknown member type %T for union %T", uv, v)
+
 	}
 	return nil
 }
@@ -2654,6 +2741,11 @@ func awsRestjson1_serializeDocumentToolSpecification(v *types.ToolSpecification,
 	if v.Name != nil {
 		ok := object.Key("name")
 		ok.String(*v.Name)
+	}
+
+	if v.Strict != nil {
+		ok := object.Key("strict")
+		ok.Boolean(*v.Strict)
 	}
 
 	return nil

@@ -646,6 +646,24 @@ type EventIncludedData struct {
 	noSmithyDocumentSerde
 }
 
+// Union of field attributes.
+//
+// The following types satisfy this interface:
+//
+//	FieldAttributesMemberText
+type FieldAttributes interface {
+	isFieldAttributes()
+}
+
+// Field attributes for Text field type.
+type FieldAttributesMemberText struct {
+	Value TextAttributes
+
+	noSmithyDocumentSerde
+}
+
+func (*FieldAttributesMemberText) isFieldAttributes() {}
+
 // Object for errors on fields.
 type FieldError struct {
 
@@ -858,6 +876,9 @@ type FieldSummary struct {
 	// This member is required.
 	Type FieldType
 
+	// Union of field attributes.
+	Attributes FieldAttributes
+
 	noSmithyDocumentSerde
 }
 
@@ -1033,6 +1054,9 @@ type GetFieldResponse struct {
 	//
 	// This member is required.
 	Type FieldType
+
+	// Union of field attributes.
+	Attributes FieldAttributes
 
 	// Timestamp at which the resource was created.
 	CreatedTime *time.Time
@@ -1820,6 +1844,17 @@ type TemplateSummary struct {
 	noSmithyDocumentSerde
 }
 
+// Field attributes for Text field type.
+type TextAttributes struct {
+
+	// Attribute that defines rendering component and validation.
+	//
+	// This member is required.
+	IsMultiline *bool
+
+	noSmithyDocumentSerde
+}
+
 // Represents the entity that performed the action.
 //
 // The following types satisfy this interface:
@@ -1864,6 +1899,7 @@ func (*UnknownUnionMember) isBooleanCondition()          {}
 func (*UnknownUnionMember) isCaseFilter()                {}
 func (*UnknownUnionMember) isCaseRuleDetails()           {}
 func (*UnknownUnionMember) isCustomFieldsFilter()        {}
+func (*UnknownUnionMember) isFieldAttributes()           {}
 func (*UnknownUnionMember) isFieldFilter()               {}
 func (*UnknownUnionMember) isFieldValueUnion()           {}
 func (*UnknownUnionMember) isLayoutContent()             {}

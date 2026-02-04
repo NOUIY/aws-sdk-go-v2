@@ -798,6 +798,10 @@ type Portal struct {
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn *string
 
+	// The custom domain of the web portal that users access in order to start
+	// streaming sessions.
+	PortalCustomDomain *string
+
 	// The endpoint URL of the web portal that users access in order to start
 	// streaming sessions.
 	PortalEndpoint *string
@@ -875,6 +879,10 @@ type PortalSummary struct {
 
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn *string
+
+	// The custom domain of the web portal that users access in order to start
+	// streaming sessions.
+	PortalCustomDomain *string
 
 	// The endpoint URL of the web portal that users access in order to start
 	// streaming sessions.

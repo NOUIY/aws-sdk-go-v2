@@ -706,6 +706,13 @@ func awsRestjson1_serializeOpDocumentCreateFieldInput(v *CreateFieldInput, value
 	object := value.Object()
 	defer object.Close()
 
+	if v.Attributes != nil {
+		ok := object.Key("attributes")
+		if err := awsRestjson1_serializeDocumentFieldAttributes(v.Attributes, ok); err != nil {
+			return err
+		}
+	}
+
 	if v.Description != nil {
 		ok := object.Key("description")
 		ok.String(*v.Description)
@@ -3759,6 +3766,13 @@ func awsRestjson1_serializeOpDocumentUpdateFieldInput(v *UpdateFieldInput, value
 	object := value.Object()
 	defer object.Close()
 
+	if v.Attributes != nil {
+		ok := object.Key("attributes")
+		if err := awsRestjson1_serializeDocumentFieldAttributes(v.Attributes, ok); err != nil {
+			return err
+		}
+	}
+
 	if v.Description != nil {
 		ok := object.Key("description")
 		ok.String(*v.Description)
@@ -4471,6 +4485,24 @@ func awsRestjson1_serializeDocumentEventIncludedData(v *types.EventIncludedData,
 		}
 	}
 
+	return nil
+}
+
+func awsRestjson1_serializeDocumentFieldAttributes(v types.FieldAttributes, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	switch uv := v.(type) {
+	case *types.FieldAttributesMemberText:
+		av := object.Key("text")
+		if err := awsRestjson1_serializeDocumentTextAttributes(&uv.Value, av); err != nil {
+			return err
+		}
+
+	default:
+		return fmt.Errorf("attempted to serialize unknown member type %T for union %T", uv, v)
+
+	}
 	return nil
 }
 
@@ -5383,6 +5415,18 @@ func awsRestjson1_serializeDocumentTemplateRule(v *types.TemplateRule, value smi
 	if v.FieldId != nil {
 		ok := object.Key("fieldId")
 		ok.String(*v.FieldId)
+	}
+
+	return nil
+}
+
+func awsRestjson1_serializeDocumentTextAttributes(v *types.TextAttributes, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	if v.IsMultiline != nil {
+		ok := object.Key("isMultiline")
+		ok.Boolean(*v.IsMultiline)
 	}
 
 	return nil

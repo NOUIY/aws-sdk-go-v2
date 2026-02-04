@@ -1403,6 +1403,25 @@ func validateEventIncludedData(v *types.EventIncludedData) error {
 	}
 }
 
+func validateFieldAttributes(v types.FieldAttributes) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "FieldAttributes"}
+	switch uv := v.(type) {
+	case *types.FieldAttributesMemberText:
+		if err := validateTextAttributes(&uv.Value); err != nil {
+			invalidParams.AddNested("[text]", err.(smithy.InvalidParamsError))
+		}
+
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
 func validateFieldFilter(v types.FieldFilter) error {
 	if v == nil {
 		return nil
@@ -2092,6 +2111,21 @@ func validateTemplateRule(v *types.TemplateRule) error {
 	}
 }
 
+func validateTextAttributes(v *types.TextAttributes) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "TextAttributes"}
+	if v.IsMultiline == nil {
+		invalidParams.Add(smithy.NewErrParamRequired("IsMultiline"))
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
 func validateOpBatchGetCaseRuleInput(v *BatchGetCaseRuleInput) error {
 	if v == nil {
 		return nil
@@ -2239,6 +2273,11 @@ func validateOpCreateFieldInput(v *CreateFieldInput) error {
 	}
 	if len(v.Type) == 0 {
 		invalidParams.Add(smithy.NewErrParamRequired("Type"))
+	}
+	if v.Attributes != nil {
+		if err := validateFieldAttributes(v.Attributes); err != nil {
+			invalidParams.AddNested("Attributes", err.(smithy.InvalidParamsError))
+		}
 	}
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -2873,6 +2912,11 @@ func validateOpUpdateFieldInput(v *UpdateFieldInput) error {
 	}
 	if v.FieldId == nil {
 		invalidParams.Add(smithy.NewErrParamRequired("FieldId"))
+	}
+	if v.Attributes != nil {
+		if err := validateFieldAttributes(v.Attributes); err != nil {
+			invalidParams.AddNested("Attributes", err.(smithy.InvalidParamsError))
+		}
 	}
 	if invalidParams.Len() > 0 {
 		return invalidParams

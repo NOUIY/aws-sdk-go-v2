@@ -672,6 +672,21 @@ func validateInvokeModelTokensRequest(v *types.InvokeModelTokensRequest) error {
 	}
 }
 
+func validateJsonSchemaDefinition(v *types.JsonSchemaDefinition) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "JsonSchemaDefinition"}
+	if v.Schema == nil {
+		invalidParams.Add(smithy.NewErrParamRequired("Schema"))
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
 func validateMessage(v *types.Message) error {
 	if v == nil {
 		return nil
@@ -703,6 +718,64 @@ func validateMessages(v []types.Message) error {
 		if err := validateMessage(&v[i]); err != nil {
 			invalidParams.AddNested(fmt.Sprintf("[%d]", i), err.(smithy.InvalidParamsError))
 		}
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
+func validateOutputConfig(v *types.OutputConfig) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "OutputConfig"}
+	if v.TextFormat != nil {
+		if err := validateOutputFormat(v.TextFormat); err != nil {
+			invalidParams.AddNested("TextFormat", err.(smithy.InvalidParamsError))
+		}
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
+func validateOutputFormat(v *types.OutputFormat) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "OutputFormat"}
+	if len(v.Type) == 0 {
+		invalidParams.Add(smithy.NewErrParamRequired("Type"))
+	}
+	if v.Structure == nil {
+		invalidParams.Add(smithy.NewErrParamRequired("Structure"))
+	} else if v.Structure != nil {
+		if err := validateOutputFormatStructure(v.Structure); err != nil {
+			invalidParams.AddNested("Structure", err.(smithy.InvalidParamsError))
+		}
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
+func validateOutputFormatStructure(v types.OutputFormatStructure) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "OutputFormatStructure"}
+	switch uv := v.(type) {
+	case *types.OutputFormatStructureMemberJsonSchema:
+		if err := validateJsonSchemaDefinition(&uv.Value); err != nil {
+			invalidParams.AddNested("[jsonSchema]", err.(smithy.InvalidParamsError))
+		}
+
 	}
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -1241,6 +1314,11 @@ func validateOpConverseInput(v *ConverseInput) error {
 			invalidParams.AddNested("ServiceTier", err.(smithy.InvalidParamsError))
 		}
 	}
+	if v.OutputConfig != nil {
+		if err := validateOutputConfig(v.OutputConfig); err != nil {
+			invalidParams.AddNested("OutputConfig", err.(smithy.InvalidParamsError))
+		}
+	}
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	} else {
@@ -1274,6 +1352,11 @@ func validateOpConverseStreamInput(v *ConverseStreamInput) error {
 	if v.ServiceTier != nil {
 		if err := validateServiceTier(v.ServiceTier); err != nil {
 			invalidParams.AddNested("ServiceTier", err.(smithy.InvalidParamsError))
+		}
+	}
+	if v.OutputConfig != nil {
+		if err := validateOutputConfig(v.OutputConfig); err != nil {
+			invalidParams.AddNested("OutputConfig", err.(smithy.InvalidParamsError))
 		}
 	}
 	if invalidParams.Len() > 0 {

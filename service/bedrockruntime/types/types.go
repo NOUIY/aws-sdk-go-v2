@@ -2150,6 +2150,25 @@ type InvokeModelTokensRequest struct {
 	noSmithyDocumentSerde
 }
 
+// JSON schema structured output format options.
+type JsonSchemaDefinition struct {
+
+	//  The JSON schema to constrain the model's output. For more information, see [JSON Schema Reference].
+	//
+	// [JSON Schema Reference]: https://json-schema.org/understanding-json-schema/reference
+	//
+	// This member is required.
+	Schema *string
+
+	//  A description of the JSON schema.
+	Description *string
+
+	//  The name of the JSON schema.
+	Name *string
+
+	noSmithyDocumentSerde
+}
+
 // A message input, or returned from, a call to [Converse] or [ConverseStream].
 //
 // [Converse]: https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html
@@ -2204,6 +2223,52 @@ type MessageStopEvent struct {
 
 	noSmithyDocumentSerde
 }
+
+// Output configuration for a model response in a call to [Converse] or [ConverseStream].
+//
+// [Converse]: https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html
+// [ConverseStream]: https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html
+type OutputConfig struct {
+
+	// Structured output parameters to control the model's text response.
+	TextFormat *OutputFormat
+
+	noSmithyDocumentSerde
+}
+
+// Structured output parameters to control the model's response.
+type OutputFormat struct {
+
+	//  The structure that the model's output must adhere to.
+	//
+	// This member is required.
+	Structure OutputFormatStructure
+
+	//  The type of structured output format.
+	//
+	// This member is required.
+	Type OutputFormatType
+
+	noSmithyDocumentSerde
+}
+
+//	The structure that the model's output must adhere to.
+//
+// The following types satisfy this interface:
+//
+//	OutputFormatStructureMemberJsonSchema
+type OutputFormatStructure interface {
+	isOutputFormatStructure()
+}
+
+// A JSON schema structure that the model's output must adhere to.
+type OutputFormatStructureMemberJsonSchema struct {
+	Value JsonSchemaDefinition
+
+	noSmithyDocumentSerde
+}
+
+func (*OutputFormatStructureMemberJsonSchema) isOutputFormatStructure() {}
 
 // Payload content included in the response.
 type PayloadPart struct {
@@ -2862,6 +2927,9 @@ type ToolSpecification struct {
 	// The description for the tool.
 	Description *string
 
+	// Flag to enable structured output enforcement on a tool usage response.
+	Strict *bool
+
 	noSmithyDocumentSerde
 }
 
@@ -3018,6 +3086,7 @@ func (*UnknownUnionMember) isGuardrailConverseContentBlock()      {}
 func (*UnknownUnionMember) isGuardrailConverseImageSource()       {}
 func (*UnknownUnionMember) isGuardrailImageSource()               {}
 func (*UnknownUnionMember) isImageSource()                        {}
+func (*UnknownUnionMember) isOutputFormatStructure()              {}
 func (*UnknownUnionMember) isPromptVariableValues()               {}
 func (*UnknownUnionMember) isReasoningContentBlock()              {}
 func (*UnknownUnionMember) isReasoningContentBlockDelta()         {}

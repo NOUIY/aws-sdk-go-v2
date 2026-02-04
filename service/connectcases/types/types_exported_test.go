@@ -149,6 +149,24 @@ var _ []types.CustomFieldsFilter
 var _ types.FieldFilter
 var _ types.CustomFieldsFilter
 
+func ExampleFieldAttributes_outputUsage() {
+	var union types.FieldAttributes
+	// type switches can be used to check the union value
+	switch v := union.(type) {
+	case *types.FieldAttributesMemberText:
+		_ = v.Value // Value is types.TextAttributes
+
+	case *types.UnknownUnionMember:
+		fmt.Println("unknown tag:", v.Tag)
+
+	default:
+		fmt.Println("union is nil or unknown type")
+
+	}
+}
+
+var _ *types.TextAttributes
+
 func ExampleFieldFilter_outputUsage() {
 	var union types.FieldFilter
 	// type switches can be used to check the union value

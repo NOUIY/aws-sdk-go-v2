@@ -1,0 +1,8 @@
+{
+    "id": "a3c9d54c-0b3d-4725-8f40-5d21f3e9fa56",
+    "type": "feature",
+    "description": "Added support for structured outputs to Converse and ConverseStream APIs.",
+    "modules": [
+        "service/bedrockruntime"
+    ]
+}

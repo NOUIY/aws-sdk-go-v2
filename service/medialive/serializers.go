@@ -725,6 +725,13 @@ func awsRestjson1_serializeOpDocumentCreateChannelInput(v *CreateChannelInput, v
 		}
 	}
 
+	if v.ChannelSecurityGroups != nil {
+		ok := object.Key("channelSecurityGroups")
+		if err := awsRestjson1_serializeDocument__listOf__string(v.ChannelSecurityGroups, ok); err != nil {
+			return err
+		}
+	}
+
 	if v.Destinations != nil {
 		ok := object.Key("destinations")
 		if err := awsRestjson1_serializeDocument__listOfOutputDestination(v.Destinations, ok); err != nil {
@@ -8973,6 +8980,13 @@ func awsRestjson1_serializeOpDocumentUpdateChannelInput(v *UpdateChannelInput, v
 	if v.ChannelEngineVersion != nil {
 		ok := object.Key("channelEngineVersion")
 		if err := awsRestjson1_serializeDocumentChannelEngineVersionRequest(v.ChannelEngineVersion, ok); err != nil {
+			return err
+		}
+	}
+
+	if v.ChannelSecurityGroups != nil {
+		ok := object.Key("channelSecurityGroups")
+		if err := awsRestjson1_serializeDocument__listOf__string(v.ChannelSecurityGroups, ok); err != nil {
 			return err
 		}
 	}
@@ -17758,6 +17772,13 @@ func awsRestjson1_serializeDocumentNodeInterfaceMapping(v *types.NodeInterfaceMa
 		ok.String(string(v.NetworkInterfaceMode))
 	}
 
+	if v.PhysicalInterfaceIpAddresses != nil {
+		ok := object.Key("physicalInterfaceIpAddresses")
+		if err := awsRestjson1_serializeDocument__listOf__string(v.PhysicalInterfaceIpAddresses, ok); err != nil {
+			return err
+		}
+	}
+
 	if v.PhysicalInterfaceName != nil {
 		ok := object.Key("physicalInterfaceName")
 		ok.String(*v.PhysicalInterfaceName)
@@ -19023,13 +19044,64 @@ func awsRestjson1_serializeDocumentSrtGroupSettings(v *types.SrtGroupSettings, v
 	return nil
 }
 
+func awsRestjson1_serializeDocumentSrtListenerDecryptionRequest(v *types.SrtListenerDecryptionRequest, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	if len(v.Algorithm) > 0 {
+		ok := object.Key("algorithm")
+		ok.String(string(v.Algorithm))
+	}
+
+	if v.PassphraseSecretArn != nil {
+		ok := object.Key("passphraseSecretArn")
+		ok.String(*v.PassphraseSecretArn)
+	}
+
+	return nil
+}
+
+func awsRestjson1_serializeDocumentSrtListenerSettingsRequest(v *types.SrtListenerSettingsRequest, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	if v.Decryption != nil {
+		ok := object.Key("decryption")
+		if err := awsRestjson1_serializeDocumentSrtListenerDecryptionRequest(v.Decryption, ok); err != nil {
+			return err
+		}
+	}
+
+	if v.MinimumLatency != nil {
+		ok := object.Key("minimumLatency")
+		ok.Integer(*v.MinimumLatency)
+	}
+
+	if v.StreamId != nil {
+		ok := object.Key("streamId")
+		ok.String(*v.StreamId)
+	}
+
+	return nil
+}
+
 func awsRestjson1_serializeDocumentSrtOutputDestinationSettings(v *types.SrtOutputDestinationSettings, value smithyjson.Value) error {
 	object := value.Object()
 	defer object.Close()
 
+	if len(v.ConnectionMode) > 0 {
+		ok := object.Key("connectionMode")
+		ok.String(string(v.ConnectionMode))
+	}
+
 	if v.EncryptionPassphraseSecretArn != nil {
 		ok := object.Key("encryptionPassphraseSecretArn")
 		ok.String(*v.EncryptionPassphraseSecretArn)
+	}
+
+	if v.ListenerPort != nil {
+		ok := object.Key("listenerPort")
+		ok.Integer(*v.ListenerPort)
 	}
 
 	if v.StreamId != nil {
@@ -19088,6 +19160,13 @@ func awsRestjson1_serializeDocumentSrtSettingsRequest(v *types.SrtSettingsReques
 	if v.SrtCallerSources != nil {
 		ok := object.Key("srtCallerSources")
 		if err := awsRestjson1_serializeDocument__listOfSrtCallerSourceRequest(v.SrtCallerSources, ok); err != nil {
+			return err
+		}
+	}
+
+	if v.SrtListenerSettings != nil {
+		ok := object.Key("srtListenerSettings")
+		if err := awsRestjson1_serializeDocumentSrtListenerSettingsRequest(v.SrtListenerSettings, ok); err != nil {
 			return err
 		}
 	}

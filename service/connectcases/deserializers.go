@@ -5573,6 +5573,19 @@ func awsRestjson1_deserializeOpDocumentSearchCasesOutput(v **SearchCasesOutput, 
 				sv.NextToken = ptr.String(jtv)
 			}
 
+		case "totalCount":
+			if value != nil {
+				jtv, ok := value.(json.Number)
+				if !ok {
+					return fmt.Errorf("expected TotalCount to be json.Number, got %T instead", value)
+				}
+				i64, err := jtv.Int64()
+				if err != nil {
+					return err
+				}
+				sv.TotalCount = i64
+			}
+
 		default:
 			_, _ = key, value
 
@@ -8312,6 +8325,46 @@ func awsRestjson1_deserializeDocumentEventIncludedData(v **types.EventIncludedDa
 	return nil
 }
 
+func awsRestjson1_deserializeDocumentFieldAttributes(v *types.FieldAttributes, value interface{}) error {
+	if v == nil {
+		return fmt.Errorf("unexpected nil of type %T", v)
+	}
+	if value == nil {
+		return nil
+	}
+
+	shape, ok := value.(map[string]interface{})
+	if !ok {
+		return fmt.Errorf("unexpected JSON type %v", value)
+	}
+
+	var uv types.FieldAttributes
+loop:
+	for key, value := range shape {
+		if value == nil {
+			continue
+		}
+		switch key {
+		case "text":
+			var mv types.TextAttributes
+			destAddr := &mv
+			if err := awsRestjson1_deserializeDocumentTextAttributes(&destAddr, value); err != nil {
+				return err
+			}
+			mv = *destAddr
+			uv = &types.FieldAttributesMemberText{Value: mv}
+			break loop
+
+		default:
+			uv = &types.UnknownUnionMember{Tag: key}
+			break loop
+
+		}
+	}
+	*v = uv
+	return nil
+}
+
 func awsRestjson1_deserializeDocumentFieldError(v **types.FieldError, value interface{}) error {
 	if v == nil {
 		return fmt.Errorf("unexpected nil of type %T", v)
@@ -8823,6 +8876,11 @@ func awsRestjson1_deserializeDocumentFieldSummary(v **types.FieldSummary, value 
 
 	for key, value := range shape {
 		switch key {
+		case "attributes":
+			if err := awsRestjson1_deserializeDocumentFieldAttributes(&sv.Attributes, value); err != nil {
+				return err
+			}
+
 		case "fieldArn":
 			if value != nil {
 				jtv, ok := value.(string)
@@ -9277,6 +9335,11 @@ func awsRestjson1_deserializeDocumentGetFieldResponse(v **types.GetFieldResponse
 
 	for key, value := range shape {
 		switch key {
+		case "attributes":
+			if err := awsRestjson1_deserializeDocumentFieldAttributes(&sv.Attributes, value); err != nil {
+				return err
+			}
+
 		case "createdTime":
 			if value != nil {
 				jtv, ok := value.(string)
@@ -11184,6 +11247,46 @@ func awsRestjson1_deserializeDocumentTemplateSummaryList(v *[]types.TemplateSumm
 
 	}
 	*v = cv
+	return nil
+}
+
+func awsRestjson1_deserializeDocumentTextAttributes(v **types.TextAttributes, value interface{}) error {
+	if v == nil {
+		return fmt.Errorf("unexpected nil of type %T", v)
+	}
+	if value == nil {
+		return nil
+	}
+
+	shape, ok := value.(map[string]interface{})
+	if !ok {
+		return fmt.Errorf("unexpected JSON type %v", value)
+	}
+
+	var sv *types.TextAttributes
+	if *v == nil {
+		sv = &types.TextAttributes{}
+	} else {
+		sv = *v
+	}
+
+	for key, value := range shape {
+		switch key {
+		case "isMultiline":
+			if value != nil {
+				jtv, ok := value.(bool)
+				if !ok {
+					return fmt.Errorf("expected Boolean to be of type *bool, got %T instead", value)
+				}
+				sv.IsMultiline = ptr.Bool(jtv)
+			}
+
+		default:
+			_, _ = key, value
+
+		}
+	}
+	*v = sv
 	return nil
 }
 

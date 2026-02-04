@@ -1441,6 +1441,25 @@ func (ColorSpace) Values() []ColorSpace {
 	}
 }
 
+type ConnectionMode string
+
+// Enum values for ConnectionMode
+const (
+	ConnectionModeCaller   ConnectionMode = "CALLER"
+	ConnectionModeListener ConnectionMode = "LISTENER"
+)
+
+// Values returns all known values for ConnectionMode. Note that this can be
+// expanded in the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
+func (ConnectionMode) Values() []ConnectionMode {
+	return []ConnectionMode{
+		"CALLER",
+		"LISTENER",
+	}
+}
+
 type ContentType string
 
 // Enum values for ContentType
@@ -4727,6 +4746,7 @@ const (
 	InputTypeSmpte2110ReceiverGroup InputType = "SMPTE_2110_RECEIVER_GROUP"
 	InputTypeSdi                    InputType = "SDI"
 	InputTypeMediaconnectRouter     InputType = "MEDIACONNECT_ROUTER"
+	InputTypeSrtListener            InputType = "SRT_LISTENER"
 )
 
 // Values returns all known values for InputType. Note that this can be expanded
@@ -4750,6 +4770,7 @@ func (InputType) Values() []InputType {
 		"SMPTE_2110_RECEIVER_GROUP",
 		"SDI",
 		"MEDIACONNECT_ROUTER",
+		"SRT_LISTENER",
 	}
 }
 
