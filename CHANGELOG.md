@@ -1,3 +1,19 @@
+# Release (2026-02-04)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/bedrockruntime`: [v1.49.0](service/bedrockruntime/CHANGELOG.md#v1490-2026-02-04)
+  * **Feature**: Added support for structured outputs to Converse and ConverseStream APIs.
+* `github.com/aws/aws-sdk-go-v2/service/connectcases`: [v1.36.0](service/connectcases/CHANGELOG.md#v1360-2026-02-04)
+  * **Feature**: Amazon Connect Cases now supports larger, multi-line text fields with up to 4,100 characters. Administrators can use the Admin UI to select the appropriate configuration (single-line or multi-line) on a per-field basis, improving case documentation capabilities.
+* `github.com/aws/aws-sdk-go-v2/service/eks`: [v1.77.1](service/eks/CHANGELOG.md#v1771-2026-02-04)
+  * **Documentation**: Update delete cluster description
+* `github.com/aws/aws-sdk-go-v2/service/medialive`: [v1.91.0](service/medialive/CHANGELOG.md#v1910-2026-02-04)
+  * **Feature**: AWS Elemental MediaLive now supports SRT listener mode for inputs and outputs, in addition to the existing SRT caller mode.
+* `github.com/aws/aws-sdk-go-v2/service/redshift`: [v1.62.1](service/redshift/CHANGELOG.md#v1621-2026-02-04)
+  * **Documentation**: We have increased the maximum duration for a deferred maintenance window from 45 days to 60 days for Amazon Redshift provisioned clusters. This enhancement provides customers with greater flexibility in scheduling patching and maintenance activities while also maintaining security compliance.
+* `github.com/aws/aws-sdk-go-v2/service/workspacesweb`: [v1.37.0](service/workspacesweb/CHANGELOG.md#v1370-2026-02-04)
+  * **Feature**: Support for configuring and managing custom domain names for WorkSpaces Secure Browser portals.
+
 # Release (2026-02-03)
 
 ## General Highlights

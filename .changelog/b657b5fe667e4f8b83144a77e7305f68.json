@@ -1,8 +1,0 @@
-{
-    "id": "b657b5fe-667e-4f8b-8314-4a77e7305f68",
-    "type": "feature",
-    "description": "Support for configuring and managing custom domain names for WorkSpaces Secure Browser portals.",
-    "modules": [
-        "service/workspacesweb"
-    ]
-}

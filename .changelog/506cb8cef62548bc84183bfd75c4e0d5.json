@@ -1,8 +1,0 @@
-{
-    "id": "506cb8ce-f625-48bc-8418-3bfd75c4e0d5",
-    "type": "documentation",
-    "description": "Update delete cluster description",
-    "modules": [
-        "service/eks"
-    ]
-}

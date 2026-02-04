@@ -1,3 +1,7 @@
+# v1.37.0 (2026-02-04)
+
+* **Feature**: Support for configuring and managing custom domain names for WorkSpaces Secure Browser portals.
+
 # v1.36.1 (2026-01-09)
 
 * **Dependency Update**: Updated to the latest SDK module versions

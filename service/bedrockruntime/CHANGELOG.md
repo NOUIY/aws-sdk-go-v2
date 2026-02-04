@@ -1,3 +1,7 @@
+# v1.49.0 (2026-02-04)
+
+* **Feature**: Added support for structured outputs to Converse and ConverseStream APIs.
+
 # v1.48.0 (2026-01-20)
 
 * **Feature**: Added support for extended prompt caching with one hour TTL.
