@@ -138,6 +138,29 @@ func (BrowserNetworkMode) Values() []BrowserNetworkMode {
 	}
 }
 
+type BrowserProfileStatus string
+
+// Enum values for BrowserProfileStatus
+const (
+	BrowserProfileStatusReady    BrowserProfileStatus = "READY"
+	BrowserProfileStatusDeleting BrowserProfileStatus = "DELETING"
+	BrowserProfileStatusDeleted  BrowserProfileStatus = "DELETED"
+	BrowserProfileStatusSaving   BrowserProfileStatus = "SAVING"
+)
+
+// Values returns all known values for BrowserProfileStatus. Note that this can be
+// expanded in the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
+func (BrowserProfileStatus) Values() []BrowserProfileStatus {
+	return []BrowserProfileStatus{
+		"READY",
+		"DELETING",
+		"DELETED",
+		"SAVING",
+	}
+}
+
 type BrowserStatus string
 
 // Enum values for BrowserStatus

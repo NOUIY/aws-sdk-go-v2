@@ -1,0 +1,8 @@
+{
+    "id": "92e09eff-2a3b-4514-bb41-fa4559eb10ac",
+    "type": "feature",
+    "description": "Reduces the minimum TargetDpus to create or update capacity reservations from 24 to 4.",
+    "modules": [
+        "service/athena"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "id": "2ed793dd-84e1-4237-a863-dbb14ac5ad5e",
+    "type": "feature",
+    "description": "Added support for 12 new graphics-optimized compute types - Graphics.g6 (xlarge, 2xlarge, 4xlarge, 8xlarge, 16xlarge), Graphics.gr6 (4xlarge, 8xlarge), Graphics.g6f (large, xlarge, 2xlarge, 4xlarge), and Graphics.gr6f (4xlarge).",
+    "modules": [
+        "service/workspaces"
+    ]
+}

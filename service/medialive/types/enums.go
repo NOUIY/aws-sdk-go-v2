@@ -536,6 +536,25 @@ func (AuthenticationScheme) Values() []AuthenticationScheme {
 	}
 }
 
+type Av1BitDepth string
+
+// Enum values for Av1BitDepth
+const (
+	Av1BitDepthDepth10 Av1BitDepth = "DEPTH_10"
+	Av1BitDepthDepth8  Av1BitDepth = "DEPTH_8"
+)
+
+// Values returns all known values for Av1BitDepth. Note that this can be expanded
+// in the future, and so it is only as up to date as the client.
+//
+// The ordering of this slice is not guaranteed to be stable across updates.
+func (Av1BitDepth) Values() []Av1BitDepth {
+	return []Av1BitDepth{
+		"DEPTH_10",
+		"DEPTH_8",
+	}
+}
+
 type Av1GopSizeUnits string
 
 // Enum values for Av1GopSizeUnits

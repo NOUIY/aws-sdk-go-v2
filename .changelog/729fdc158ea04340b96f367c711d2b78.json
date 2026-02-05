@@ -1,0 +1,8 @@
+{
+    "id": "729fdc15-8ea0-4340-b96f-367c711d2b78",
+    "type": "feature",
+    "description": "Adds support for the customer to send custom HTTP headers and configure an AS2 Connector to receive Asynchronous MDNs from their trading partner",
+    "modules": [
+        "service/transfer"
+    ]
+}

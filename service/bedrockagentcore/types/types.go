@@ -20,10 +20,10 @@ type ActorSummary struct {
 }
 
 // The configuration for a stream that enables programmatic control of a browser
-// session in Amazon Bedrock. This stream provides a bidirectional communication
-// channel for sending commands to the browser and receiving responses, allowing
-// agents to automate web interactions such as navigation, form filling, and
-// element clicking.
+// session in Amazon Bedrock AgentCore. This stream provides a bidirectional
+// communication channel for sending commands to the browser and receiving
+// responses, allowing agents to automate web interactions such as navigation, form
+// filling, and element clicking.
 type AutomationStream struct {
 
 	// The endpoint URL for the automation stream. This URL is used to establish a
@@ -93,10 +93,27 @@ type BrowserExtension struct {
 	noSmithyDocumentSerde
 }
 
-// The collection of streams associated with a browser session in Amazon Bedrock.
-// These streams provide different ways to interact with and observe the browser
-// session, including programmatic control and visual representation of the browser
-// content.
+// The configuration for a browser profile in Amazon Bedrock AgentCore. A browser
+// profile contains persistent browser data such as cookies and local storage that
+// can be saved from one browser session and reused in subsequent sessions. Browser
+// profiles enable continuity for tasks that require authentication, maintain user
+// preferences, or depend on previously stored browser state.
+type BrowserProfileConfiguration struct {
+
+	// The unique identifier of the browser profile. This identifier is used to
+	// reference the profile when starting new browser sessions or saving session data
+	// to the profile.
+	//
+	// This member is required.
+	ProfileIdentifier *string
+
+	noSmithyDocumentSerde
+}
+
+// The collection of streams associated with a browser session in Amazon Bedrock
+// AgentCore. These streams provide different ways to interact with and observe the
+// browser session, including programmatic control and visual representation of the
+// browser content.
 type BrowserSessionStream struct {
 
 	// The stream that enables programmatic control of the browser. This stream allows
@@ -114,8 +131,8 @@ type BrowserSessionStream struct {
 	noSmithyDocumentSerde
 }
 
-// A condensed representation of a browser session in Amazon Bedrock. This
-// structure contains key information about a browser session, including
+// A condensed representation of a browser session in Amazon Bedrock AgentCore.
+// This structure contains key information about a browser session, including
 // identifiers, status, and timestamps, without the full details of the session
 // configuration and streams.
 type BrowserSessionSummary struct {
@@ -156,10 +173,10 @@ type BrowserSessionSummary struct {
 }
 
 // The output produced by executing code in a code interpreter session in Amazon
-// Bedrock. This structure contains the results of code execution, including
-// textual output, structured data, and error information. Agents use these results
-// to generate responses that incorporate computation, data analysis, and
-// visualization.
+// Bedrock AgentCore. This structure contains the results of code execution,
+// including textual output, structured data, and error information. Agents use
+// these results to generate responses that incorporate computation, data analysis,
+// and visualization.
 type CodeInterpreterResult struct {
 
 	// The textual content of the execution result. This includes standard output from
@@ -183,10 +200,10 @@ type CodeInterpreterResult struct {
 	noSmithyDocumentSerde
 }
 
-// A condensed representation of a code interpreter session in Amazon Bedrock.
-// This structure contains key information about a code interpreter session,
-// including identifiers, status, and timestamps, without the full details of the
-// session configuration.
+// A condensed representation of a code interpreter session in Amazon Bedrock
+// AgentCore. This structure contains key information about a code interpreter
+// session, including identifiers, status, and timestamps, without the full details
+// of the session configuration.
 type CodeInterpreterSessionSummary struct {
 
 	// The unique identifier of the code interpreter associated with the session. This
@@ -234,10 +251,10 @@ type CodeInterpreterStreamOutput interface {
 }
 
 // The output produced by executing code in a code interpreter session in Amazon
-// Bedrock. This structure contains the results of code execution, including
-// textual output, structured data, and error information. Agents use these results
-// to generate responses that incorporate computation, data analysis, and
-// visualization.
+// Bedrock AgentCore. This structure contains the results of code execution,
+// including textual output, structured data, and error information. Agents use
+// these results to generate responses that incorporate computation, data analysis,
+// and visualization.
 type CodeInterpreterStreamOutputMemberResult struct {
 	Value CodeInterpreterResult
 
@@ -663,9 +680,9 @@ type LeftExpressionMemberMetadataKey struct {
 func (*LeftExpressionMemberMetadataKey) isLeftExpression() {}
 
 // The configuration for a stream that provides a visual representation of a
-// browser session in Amazon Bedrock. This stream enables agents to observe the
-// current state of the browser, including rendered web pages, visual elements, and
-// the results of interactions.
+// browser session in Amazon Bedrock AgentCore. This stream enables agents to
+// observe the current state of the browser, including rendered web pages, visual
+// elements, and the results of interactions.
 type LiveViewStream struct {
 
 	// The endpoint URL for the live view stream. This URL is used to establish a
@@ -1132,9 +1149,9 @@ type TokenUsage struct {
 }
 
 // The collection of arguments that specify the operation to perform and its
-// parameters when invoking a tool in Amazon Bedrock. Different tools require
-// different arguments, and this structure provides a flexible way to pass the
-// appropriate arguments to each tool type.
+// parameters when invoking a tool in Amazon Bedrock AgentCore. Different tools
+// require different arguments, and this structure provides a flexible way to pass
+// the appropriate arguments to each tool type.
 type ToolArguments struct {
 
 	// Whether to clear the context for the tool.

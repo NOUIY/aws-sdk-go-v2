@@ -34,8 +34,8 @@ func (c *Client) StartPlanExecution(ctx context.Context, params *StartPlanExecut
 
 type StartPlanExecutionInput struct {
 
-	// The action to perform. Valid values are ACTIVATE (to shift traffic to the
-	// target Region) or DEACTIVATE (to shift traffic away from the target Region).
+	// The action to perform. Valid values are activate (to shift traffic to the
+	// target Region) or deactivate (to shift traffic away from the target Region).
 	//
 	// This member is required.
 	Action types.ExecutionAction
@@ -58,9 +58,8 @@ type StartPlanExecutionInput struct {
 	// set to false, you must specify a specific version.
 	LatestVersion *string
 
-	// The plan execution mode. Valid values are Practice , for testing without making
-	// actual changes, or Recovery , for actual traffic shifting and application
-	// recovery.
+	// The plan execution mode. Valid values are graceful , for starting the execution
+	// in graceful mode, or ungraceful , for starting the execution in ungraceful mode.
 	Mode types.ExecutionMode
 
 	noSmithyDocumentSerde

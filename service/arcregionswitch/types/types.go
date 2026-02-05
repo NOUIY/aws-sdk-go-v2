@@ -11,8 +11,8 @@ import (
 // information about an execution without all the detailed step data.
 type AbbreviatedExecution struct {
 
-	// The plan execution action. Valid values are Activate , to activate an Amazon Web
-	// Services Region, or Deactivate , to deactivate a Region.
+	// The plan execution action. Valid values are activate , to activate an Amazon Web
+	// Services Region, or deactivate , to deactivate a Region.
 	//
 	// This member is required.
 	ExecutionAction ExecutionAction
@@ -33,9 +33,8 @@ type AbbreviatedExecution struct {
 	// This member is required.
 	ExecutionState ExecutionState
 
-	// The plan execution mode. Valid values are Practice , for testing without making
-	// actual changes, or Recovery , for actual traffic shifting and application
-	// recovery.
+	// The plan execution mode. Valid values are graceful , for graceful executions, or
+	// ungraceful , for ungraceful executions.
 	//
 	// This member is required.
 	Mode ExecutionMode
@@ -1067,8 +1066,8 @@ type StepState struct {
 // switch plan.
 type Trigger struct {
 
-	// The action to perform when the trigger fires. Valid values include ACTIVATE and
-	// DEACTIVATE.
+	// The action to perform when the trigger fires. Valid values include activate and
+	// deactivate .
 	//
 	// This member is required.
 	Action WorkflowTargetAction
@@ -1103,7 +1102,7 @@ type TriggerCondition struct {
 	// This member is required.
 	AssociatedAlarmName *string
 
-	// The condition that must be met. Valid values include ALARM and OK.
+	// The condition that must be met. Valid values include green and red .
 	//
 	// This member is required.
 	Condition AlarmCondition
@@ -1115,8 +1114,8 @@ type TriggerCondition struct {
 // steps to execute during a Region switch.
 type Workflow struct {
 
-	// The action that the workflow performs. Valid values include ACTIVATE and
-	// DEACTIVATE.
+	// The action that the workflow performs. Valid values include activate and
+	// deactivate .
 	//
 	// This member is required.
 	WorkflowTargetAction WorkflowTargetAction

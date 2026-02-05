@@ -29706,6 +29706,15 @@ func awsRestjson1_deserializeDocumentAv1Settings(v **types.Av1Settings, value in
 				sv.AfdSignaling = types.AfdSignaling(jtv)
 			}
 
+		case "bitDepth":
+			if value != nil {
+				jtv, ok := value.(string)
+				if !ok {
+					return fmt.Errorf("expected Av1BitDepth to be of type string, got %T instead", value)
+				}
+				sv.BitDepth = types.Av1BitDepth(jtv)
+			}
+
 		case "bitrate":
 			if value != nil {
 				jtv, ok := value.(json.Number)

@@ -12436,6 +12436,11 @@ func awsRestjson1_serializeDocumentAv1Settings(v *types.Av1Settings, value smith
 		ok.String(string(v.AfdSignaling))
 	}
 
+	if len(v.BitDepth) > 0 {
+		ok := object.Key("bitDepth")
+		ok.String(string(v.BitDepth))
+	}
+
 	if v.Bitrate != nil {
 		ok := object.Key("bitrate")
 		ok.Integer(*v.Bitrate)

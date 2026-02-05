@@ -90,6 +90,26 @@ func (m *validateOpCreateBrowser) HandleInitialize(ctx context.Context, in middl
 	return next.HandleInitialize(ctx, in)
 }
 
+type validateOpCreateBrowserProfile struct {
+}
+
+func (*validateOpCreateBrowserProfile) ID() string {
+	return "OperationInputValidation"
+}
+
+func (m *validateOpCreateBrowserProfile) HandleInitialize(ctx context.Context, in middleware.InitializeInput, next middleware.InitializeHandler) (
+	out middleware.InitializeOutput, metadata middleware.Metadata, err error,
+) {
+	input, ok := in.Parameters.(*CreateBrowserProfileInput)
+	if !ok {
+		return out, metadata, fmt.Errorf("unknown input parameters type %T", in.Parameters)
+	}
+	if err := validateOpCreateBrowserProfileInput(input); err != nil {
+		return out, metadata, err
+	}
+	return next.HandleInitialize(ctx, in)
+}
+
 type validateOpCreateCodeInterpreter struct {
 }
 
@@ -365,6 +385,26 @@ func (m *validateOpDeleteBrowser) HandleInitialize(ctx context.Context, in middl
 		return out, metadata, fmt.Errorf("unknown input parameters type %T", in.Parameters)
 	}
 	if err := validateOpDeleteBrowserInput(input); err != nil {
+		return out, metadata, err
+	}
+	return next.HandleInitialize(ctx, in)
+}
+
+type validateOpDeleteBrowserProfile struct {
+}
+
+func (*validateOpDeleteBrowserProfile) ID() string {
+	return "OperationInputValidation"
+}
+
+func (m *validateOpDeleteBrowserProfile) HandleInitialize(ctx context.Context, in middleware.InitializeInput, next middleware.InitializeHandler) (
+	out middleware.InitializeOutput, metadata middleware.Metadata, err error,
+) {
+	input, ok := in.Parameters.(*DeleteBrowserProfileInput)
+	if !ok {
+		return out, metadata, fmt.Errorf("unknown input parameters type %T", in.Parameters)
+	}
+	if err := validateOpDeleteBrowserProfileInput(input); err != nil {
 		return out, metadata, err
 	}
 	return next.HandleInitialize(ctx, in)
@@ -665,6 +705,26 @@ func (m *validateOpGetBrowser) HandleInitialize(ctx context.Context, in middlewa
 		return out, metadata, fmt.Errorf("unknown input parameters type %T", in.Parameters)
 	}
 	if err := validateOpGetBrowserInput(input); err != nil {
+		return out, metadata, err
+	}
+	return next.HandleInitialize(ctx, in)
+}
+
+type validateOpGetBrowserProfile struct {
+}
+
+func (*validateOpGetBrowserProfile) ID() string {
+	return "OperationInputValidation"
+}
+
+func (m *validateOpGetBrowserProfile) HandleInitialize(ctx context.Context, in middleware.InitializeInput, next middleware.InitializeHandler) (
+	out middleware.InitializeOutput, metadata middleware.Metadata, err error,
+) {
+	input, ok := in.Parameters.(*GetBrowserProfileInput)
+	if !ok {
+		return out, metadata, fmt.Errorf("unknown input parameters type %T", in.Parameters)
+	}
+	if err := validateOpGetBrowserProfileInput(input); err != nil {
 		return out, metadata, err
 	}
 	return next.HandleInitialize(ctx, in)
@@ -1426,6 +1486,10 @@ func addOpCreateBrowserValidationMiddleware(stack *middleware.Stack) error {
 	return stack.Initialize.Add(&validateOpCreateBrowser{}, middleware.After)
 }
 
+func addOpCreateBrowserProfileValidationMiddleware(stack *middleware.Stack) error {
+	return stack.Initialize.Add(&validateOpCreateBrowserProfile{}, middleware.After)
+}
+
 func addOpCreateCodeInterpreterValidationMiddleware(stack *middleware.Stack) error {
 	return stack.Initialize.Add(&validateOpCreateCodeInterpreter{}, middleware.After)
 }
@@ -1480,6 +1544,10 @@ func addOpDeleteApiKeyCredentialProviderValidationMiddleware(stack *middleware.S
 
 func addOpDeleteBrowserValidationMiddleware(stack *middleware.Stack) error {
 	return stack.Initialize.Add(&validateOpDeleteBrowser{}, middleware.After)
+}
+
+func addOpDeleteBrowserProfileValidationMiddleware(stack *middleware.Stack) error {
+	return stack.Initialize.Add(&validateOpDeleteBrowserProfile{}, middleware.After)
 }
 
 func addOpDeleteCodeInterpreterValidationMiddleware(stack *middleware.Stack) error {
@@ -1540,6 +1608,10 @@ func addOpGetApiKeyCredentialProviderValidationMiddleware(stack *middleware.Stac
 
 func addOpGetBrowserValidationMiddleware(stack *middleware.Stack) error {
 	return stack.Initialize.Add(&validateOpGetBrowser{}, middleware.After)
+}
+
+func addOpGetBrowserProfileValidationMiddleware(stack *middleware.Stack) error {
+	return stack.Initialize.Add(&validateOpGetBrowserProfile{}, middleware.After)
 }
 
 func addOpGetCodeInterpreterValidationMiddleware(stack *middleware.Stack) error {
@@ -4004,6 +4076,21 @@ func validateOpCreateBrowserInput(v *CreateBrowserInput) error {
 	}
 }
 
+func validateOpCreateBrowserProfileInput(v *CreateBrowserProfileInput) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "CreateBrowserProfileInput"}
+	if v.Name == nil {
+		invalidParams.Add(smithy.NewErrParamRequired("Name"))
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
 func validateOpCreateCodeInterpreterInput(v *CreateCodeInterpreterInput) error {
 	if v == nil {
 		return nil
@@ -4324,6 +4411,21 @@ func validateOpDeleteBrowserInput(v *DeleteBrowserInput) error {
 	}
 }
 
+func validateOpDeleteBrowserProfileInput(v *DeleteBrowserProfileInput) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "DeleteBrowserProfileInput"}
+	if v.ProfileId == nil {
+		invalidParams.Add(smithy.NewErrParamRequired("ProfileId"))
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
 func validateOpDeleteCodeInterpreterInput(v *DeleteCodeInterpreterInput) error {
 	if v == nil {
 		return nil
@@ -4550,6 +4652,21 @@ func validateOpGetBrowserInput(v *GetBrowserInput) error {
 	invalidParams := smithy.InvalidParamsError{Context: "GetBrowserInput"}
 	if v.BrowserId == nil {
 		invalidParams.Add(smithy.NewErrParamRequired("BrowserId"))
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
+func validateOpGetBrowserProfileInput(v *GetBrowserProfileInput) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "GetBrowserProfileInput"}
+	if v.ProfileId == nil {
+		invalidParams.Add(smithy.NewErrParamRequired("ProfileId"))
 	}
 	if invalidParams.Len() > 0 {
 		return invalidParams

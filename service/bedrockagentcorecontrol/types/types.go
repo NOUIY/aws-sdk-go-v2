@@ -9,7 +9,7 @@ import (
 )
 
 // Contains information about an agent runtime. An agent runtime is the execution
-// environment for a Amazon Bedrock Agent.
+// environment for a Amazon Bedrock AgentCore Agent.
 type AgentRuntime struct {
 
 	// The Amazon Resource Name (ARN) of the agent runtime.
@@ -383,6 +383,57 @@ type BrowserNetworkConfiguration struct {
 	noSmithyDocumentSerde
 }
 
+// Contains summary information about a browser profile. A browser profile stores
+// persistent browser data that can be reused across browser sessions.
+type BrowserProfileSummary struct {
+
+	// The timestamp when the browser profile was created.
+	//
+	// This member is required.
+	CreatedAt *time.Time
+
+	// The timestamp when the browser profile was last updated.
+	//
+	// This member is required.
+	LastUpdatedAt *time.Time
+
+	// The name of the browser profile.
+	//
+	// This member is required.
+	Name *string
+
+	// The Amazon Resource Name (ARN) of the browser profile.
+	//
+	// This member is required.
+	ProfileArn *string
+
+	// The unique identifier of the browser profile.
+	//
+	// This member is required.
+	ProfileId *string
+
+	// The current status of the browser profile. Possible values include READY,
+	// SAVING, DELETING, and DELETED.
+	//
+	// This member is required.
+	Status BrowserProfileStatus
+
+	// The description of the browser profile.
+	Description *string
+
+	// The timestamp when browser session data was last saved to this profile.
+	LastSavedAt *time.Time
+
+	// The identifier of the browser from which data was last saved to this profile.
+	LastSavedBrowserId *string
+
+	// The identifier of the browser session from which data was last saved to this
+	// profile.
+	LastSavedBrowserSessionId *string
+
+	noSmithyDocumentSerde
+}
+
 // Configuration for enabling browser signing capabilities that allow agents to
 // cryptographically identify themselves to websites using HTTP message signatures.
 type BrowserSigningConfigInput struct {
@@ -411,7 +462,7 @@ type BrowserSigningConfigOutput struct {
 }
 
 // Contains summary information about a browser. A browser enables Amazon Bedrock
-// Agent to interact with web content.
+// AgentCore Agent to interact with web content.
 type BrowserSummary struct {
 
 	// The Amazon Resource Name (ARN) of the browser.
@@ -614,7 +665,7 @@ type CodeInterpreterNetworkConfiguration struct {
 }
 
 // Contains summary information about a code interpreter. A code interpreter
-// enables Amazon Bedrock Agent to execute code.
+// enables Amazon Bedrock AgentCore Agent to execute code.
 type CodeInterpreterSummary struct {
 
 	// The Amazon Resource Name (ARN) of the code interpreter.

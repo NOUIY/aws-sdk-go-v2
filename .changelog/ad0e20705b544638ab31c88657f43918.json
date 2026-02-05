@@ -1,0 +1,8 @@
+{
+    "id": "ad0e2070-5b54-4638-ab31-c88657f43918",
+    "type": "feature",
+    "description": "Updates documentation for ARC Region switch and provides stronger validation for Amazon Aurora Global Database execution block parameters.",
+    "modules": [
+        "service/arcregionswitch"
+    ]
+}

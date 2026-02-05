@@ -597,6 +597,10 @@ type Av1Settings struct {
 	// fixedAfd parameter. NONE: MediaLive won't write AFD into the video
 	AfdSignaling AfdSignaling
 
+	// Specifies the bit depth for the output encode. Choose a value. Or leave the
+	// field empty to use the default, which is 8 bit.
+	BitDepth Av1BitDepth
+
 	// Average bitrate in bits/second. Required when the rate control mode is CBR. Not
 	// used for QVBR.
 	Bitrate *int32

@@ -570,6 +570,26 @@ func (m *validateOpRetrieveMemoryRecords) HandleInitialize(ctx context.Context, 
 	return next.HandleInitialize(ctx, in)
 }
 
+type validateOpSaveBrowserSessionProfile struct {
+}
+
+func (*validateOpSaveBrowserSessionProfile) ID() string {
+	return "OperationInputValidation"
+}
+
+func (m *validateOpSaveBrowserSessionProfile) HandleInitialize(ctx context.Context, in middleware.InitializeInput, next middleware.InitializeHandler) (
+	out middleware.InitializeOutput, metadata middleware.Metadata, err error,
+) {
+	input, ok := in.Parameters.(*SaveBrowserSessionProfileInput)
+	if !ok {
+		return out, metadata, fmt.Errorf("unknown input parameters type %T", in.Parameters)
+	}
+	if err := validateOpSaveBrowserSessionProfileInput(input); err != nil {
+		return out, metadata, err
+	}
+	return next.HandleInitialize(ctx, in)
+}
+
 type validateOpStartBrowserSession struct {
 }
 
@@ -822,6 +842,10 @@ func addOpRetrieveMemoryRecordsValidationMiddleware(stack *middleware.Stack) err
 	return stack.Initialize.Add(&validateOpRetrieveMemoryRecords{}, middleware.After)
 }
 
+func addOpSaveBrowserSessionProfileValidationMiddleware(stack *middleware.Stack) error {
+	return stack.Initialize.Add(&validateOpSaveBrowserSessionProfile{}, middleware.After)
+}
+
 func addOpStartBrowserSessionValidationMiddleware(stack *middleware.Stack) error {
 	return stack.Initialize.Add(&validateOpStartBrowserSession{}, middleware.After)
 }
@@ -908,6 +932,21 @@ func validateBrowserExtensions(v []types.BrowserExtension) error {
 		if err := validateBrowserExtension(&v[i]); err != nil {
 			invalidParams.AddNested(fmt.Sprintf("[%d]", i), err.(smithy.InvalidParamsError))
 		}
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
+func validateBrowserProfileConfiguration(v *types.BrowserProfileConfiguration) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "BrowserProfileConfiguration"}
+	if v.ProfileIdentifier == nil {
+		invalidParams.Add(smithy.NewErrParamRequired("ProfileIdentifier"))
 	}
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -1860,6 +1899,27 @@ func validateOpRetrieveMemoryRecordsInput(v *RetrieveMemoryRecordsInput) error {
 	}
 }
 
+func validateOpSaveBrowserSessionProfileInput(v *SaveBrowserSessionProfileInput) error {
+	if v == nil {
+		return nil
+	}
+	invalidParams := smithy.InvalidParamsError{Context: "SaveBrowserSessionProfileInput"}
+	if v.ProfileIdentifier == nil {
+		invalidParams.Add(smithy.NewErrParamRequired("ProfileIdentifier"))
+	}
+	if v.BrowserIdentifier == nil {
+		invalidParams.Add(smithy.NewErrParamRequired("BrowserIdentifier"))
+	}
+	if v.SessionId == nil {
+		invalidParams.Add(smithy.NewErrParamRequired("SessionId"))
+	}
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	} else {
+		return nil
+	}
+}
+
 func validateOpStartBrowserSessionInput(v *StartBrowserSessionInput) error {
 	if v == nil {
 		return nil
@@ -1876,6 +1936,11 @@ func validateOpStartBrowserSessionInput(v *StartBrowserSessionInput) error {
 	if v.Extensions != nil {
 		if err := validateBrowserExtensions(v.Extensions); err != nil {
 			invalidParams.AddNested("Extensions", err.(smithy.InvalidParamsError))
+		}
+	}
+	if v.ProfileConfiguration != nil {
+		if err := validateBrowserProfileConfiguration(v.ProfileConfiguration); err != nil {
+			invalidParams.AddNested("ProfileConfiguration", err.(smithy.InvalidParamsError))
 		}
 	}
 	if invalidParams.Len() > 0 {

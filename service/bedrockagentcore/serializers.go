@@ -2809,6 +2809,120 @@ func awsRestjson1_serializeOpDocumentRetrieveMemoryRecordsInput(v *RetrieveMemor
 	return nil
 }
 
+type awsRestjson1_serializeOpSaveBrowserSessionProfile struct {
+}
+
+func (*awsRestjson1_serializeOpSaveBrowserSessionProfile) ID() string {
+	return "OperationSerializer"
+}
+
+func (m *awsRestjson1_serializeOpSaveBrowserSessionProfile) HandleSerialize(ctx context.Context, in middleware.SerializeInput, next middleware.SerializeHandler) (
+	out middleware.SerializeOutput, metadata middleware.Metadata, err error,
+) {
+	_, span := tracing.StartSpan(ctx, "OperationSerializer")
+	endTimer := startMetricTimer(ctx, "client.call.serialization_duration")
+	defer endTimer()
+	defer span.End()
+	request, ok := in.Request.(*smithyhttp.Request)
+	if !ok {
+		return out, metadata, &smithy.SerializationError{Err: fmt.Errorf("unknown transport type %T", in.Request)}
+	}
+
+	input, ok := in.Parameters.(*SaveBrowserSessionProfileInput)
+	_ = input
+	if !ok {
+		return out, metadata, &smithy.SerializationError{Err: fmt.Errorf("unknown input parameters type %T", in.Parameters)}
+	}
+
+	opPath, opQuery := httpbinding.SplitURI("/browser-profiles/{profileIdentifier}/save")
+	request.URL.Path = smithyhttp.JoinPath(request.URL.Path, opPath)
+	request.URL.RawQuery = smithyhttp.JoinRawQuery(request.URL.RawQuery, opQuery)
+	request.Method = "PUT"
+	var restEncoder *httpbinding.Encoder
+	if request.URL.RawPath == "" {
+		restEncoder, err = httpbinding.NewEncoder(request.URL.Path, request.URL.RawQuery, request.Header)
+	} else {
+		request.URL.RawPath = smithyhttp.JoinPath(request.URL.RawPath, opPath)
+		restEncoder, err = httpbinding.NewEncoderWithRawPath(request.URL.Path, request.URL.RawPath, request.URL.RawQuery, request.Header)
+	}
+
+	if err != nil {
+		return out, metadata, &smithy.SerializationError{Err: err}
+	}
+
+	if err := awsRestjson1_serializeOpHttpBindingsSaveBrowserSessionProfileInput(input, restEncoder); err != nil {
+		return out, metadata, &smithy.SerializationError{Err: err}
+	}
+
+	restEncoder.SetHeader("Content-Type").String("application/json")
+
+	jsonEncoder := smithyjson.NewEncoder()
+	if err := awsRestjson1_serializeOpDocumentSaveBrowserSessionProfileInput(input, jsonEncoder.Value); err != nil {
+		return out, metadata, &smithy.SerializationError{Err: err}
+	}
+
+	if request, err = request.SetStream(bytes.NewReader(jsonEncoder.Bytes())); err != nil {
+		return out, metadata, &smithy.SerializationError{Err: err}
+	}
+
+	if request.Request, err = restEncoder.Encode(request.Request); err != nil {
+		return out, metadata, &smithy.SerializationError{Err: err}
+	}
+	in.Request = request
+
+	endTimer()
+	span.End()
+	return next.HandleSerialize(ctx, in)
+}
+func awsRestjson1_serializeOpHttpBindingsSaveBrowserSessionProfileInput(v *SaveBrowserSessionProfileInput, encoder *httpbinding.Encoder) error {
+	if v == nil {
+		return fmt.Errorf("unsupported serialization of nil %T", v)
+	}
+
+	if v.ProfileIdentifier == nil || len(*v.ProfileIdentifier) == 0 {
+		return &smithy.SerializationError{Err: fmt.Errorf("input member profileIdentifier must not be empty")}
+	}
+	if v.ProfileIdentifier != nil {
+		if err := encoder.SetURI("profileIdentifier").String(*v.ProfileIdentifier); err != nil {
+			return err
+		}
+	}
+
+	if v.TraceId != nil {
+		locationName := "X-Amzn-Trace-Id"
+		encoder.SetHeader(locationName).String(*v.TraceId)
+	}
+
+	if v.TraceParent != nil {
+		locationName := "Traceparent"
+		encoder.SetHeader(locationName).String(*v.TraceParent)
+	}
+
+	return nil
+}
+
+func awsRestjson1_serializeOpDocumentSaveBrowserSessionProfileInput(v *SaveBrowserSessionProfileInput, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	if v.BrowserIdentifier != nil {
+		ok := object.Key("browserIdentifier")
+		ok.String(*v.BrowserIdentifier)
+	}
+
+	if v.ClientToken != nil {
+		ok := object.Key("clientToken")
+		ok.String(*v.ClientToken)
+	}
+
+	if v.SessionId != nil {
+		ok := object.Key("sessionId")
+		ok.String(*v.SessionId)
+	}
+
+	return nil
+}
+
 type awsRestjson1_serializeOpStartBrowserSession struct {
 }
 
@@ -2920,6 +3034,13 @@ func awsRestjson1_serializeOpDocumentStartBrowserSessionInput(v *StartBrowserSes
 	if v.Name != nil {
 		ok := object.Key("name")
 		ok.String(*v.Name)
+	}
+
+	if v.ProfileConfiguration != nil {
+		ok := object.Key("profileConfiguration")
+		if err := awsRestjson1_serializeDocumentBrowserProfileConfiguration(v.ProfileConfiguration, ok); err != nil {
+			return err
+		}
 	}
 
 	if v.SessionTimeoutSeconds != nil {
@@ -3646,6 +3767,18 @@ func awsRestjson1_serializeDocumentBrowserExtensions(v []types.BrowserExtension,
 			return err
 		}
 	}
+	return nil
+}
+
+func awsRestjson1_serializeDocumentBrowserProfileConfiguration(v *types.BrowserProfileConfiguration, value smithyjson.Value) error {
+	object := value.Object()
+	defer object.Close()
+
+	if v.ProfileIdentifier != nil {
+		ok := object.Key("profileIdentifier")
+		ok.String(*v.ProfileIdentifier)
+	}
+
 	return nil
 }
 
