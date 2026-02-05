@@ -1,3 +1,7 @@
+# v1.5.0 (2026-02-05)
+
+* **Feature**: Updates documentation for ARC Region switch and provides stronger validation for Amazon Aurora Global Database execution block parameters.
+
 # v1.4.1 (2026-01-09)
 
 * **Dependency Update**: Updated to the latest SDK module versions

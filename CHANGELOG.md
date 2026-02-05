@@ -1,3 +1,29 @@
+# Release (2026-02-05)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/feature/s3/manager`: [v1.22.0](feature/s3/manager/CHANGELOG.md#v1220-2026-02-05)
+  * **Feature**: Deprecate feature/s3/manager, superceded by feature/s3/transfermanager. See https://github.com/aws/aws-sdk-go-v2/discussions/3306
+* `github.com/aws/aws-sdk-go-v2/service/arcregionswitch`: [v1.5.0](service/arcregionswitch/CHANGELOG.md#v150-2026-02-05)
+  * **Feature**: Updates documentation for ARC Region switch and provides stronger validation for Amazon Aurora Global Database execution block parameters.
+* `github.com/aws/aws-sdk-go-v2/service/athena`: [v1.57.0](service/athena/CHANGELOG.md#v1570-2026-02-05)
+  * **Feature**: Reduces the minimum TargetDpus to create or update capacity reservations from 24 to 4.
+* `github.com/aws/aws-sdk-go-v2/service/bedrockagentcore`: [v1.12.0](service/bedrockagentcore/CHANGELOG.md#v1120-2026-02-05)
+  * **Feature**: Support Browser profile persistence (cookies and local storage) across sessions for AgentCore Browser.
+* `github.com/aws/aws-sdk-go-v2/service/bedrockagentcorecontrol`: [v1.19.0](service/bedrockagentcorecontrol/CHANGELOG.md#v1190-2026-02-05)
+  * **Feature**: Support Browser profile persistence (cookies and local storage) across sessions for AgentCore Browser.
+* `github.com/aws/aws-sdk-go-v2/service/glue`: [v1.137.0](service/glue/CHANGELOG.md#v11370-2026-02-05)
+  * **Feature**: This release adds the capability to easily create custom AWS Glue connections to data sources with REST APIs.
+* `github.com/aws/aws-sdk-go-v2/service/medialive`: [v1.92.0](service/medialive/CHANGELOG.md#v1920-2026-02-05)
+  * **Feature**: Outputs using the AV1 codec in CMAF Ingest output groups in MediaLive now have the ability to specify a target bit depth of 8 or 10.
+* `github.com/aws/aws-sdk-go-v2/service/neptunegraph`: [v1.21.17](service/neptunegraph/CHANGELOG.md#v12117-2026-02-05)
+  * **Documentation**: Minor neptune-graph documentation changes
+* `github.com/aws/aws-sdk-go-v2/service/ram`: [v1.35.0](service/ram/CHANGELOG.md#v1350-2026-02-05)
+  * **Feature**: Added ListSourceAssociations API. Allows RAM resource share owners to list source associations that determine which sources can access resources through service principal associations. Supports filtering by resource share ARN, source ID, source type, or status, with pagination.
+* `github.com/aws/aws-sdk-go-v2/service/transfer`: [v1.69.0](service/transfer/CHANGELOG.md#v1690-2026-02-05)
+  * **Feature**: Adds support for the customer to send custom HTTP headers and configure an AS2 Connector to receive Asynchronous MDNs from their trading partner
+* `github.com/aws/aws-sdk-go-v2/service/workspaces`: [v1.66.0](service/workspaces/CHANGELOG.md#v1660-2026-02-05)
+  * **Feature**: Added support for 12 new graphics-optimized compute types - Graphics.g6 (xlarge, 2xlarge, 4xlarge, 8xlarge, 16xlarge), Graphics.gr6 (4xlarge, 8xlarge), Graphics.g6f (large, xlarge, 2xlarge, 4xlarge), and Graphics.gr6f (4xlarge).
+
 # Release (2026-02-04)
 
 ## Module Highlights

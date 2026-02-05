@@ -1,8 +1,0 @@
-{
-    "id": "4d5c9ed7-e7b8-4862-8ed2-eaa6909b5014",
-    "type": "documentation",
-    "description": "Minor neptune-graph documentation changes",
-    "modules": [
-        "service/neptunegraph"
-    ]
-}

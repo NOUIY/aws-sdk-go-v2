@@ -1,8 +1,0 @@
-{
-    "id": "910022b1-6e95-4b85-bb9b-abec5c1251d9",
-    "type": "feature",
-    "description": "Outputs using the AV1 codec in CMAF Ingest output groups in MediaLive now have the ability to specify a target bit depth of 8 or 10.",
-    "modules": [
-        "service/medialive"
-    ]
-}

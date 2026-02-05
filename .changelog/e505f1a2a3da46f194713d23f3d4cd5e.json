@@ -1,8 +1,0 @@
-{
-    "id": "e505f1a2-a3da-46f1-9471-3d23f3d4cd5e",
-    "type": "feature",
-    "description": "Added ListSourceAssociations API. Allows RAM resource share owners to list source associations that determine which sources can access resources through service principal associations. Supports filtering by resource share ARN, source ID, source type, or status, with pagination.",
-    "modules": [
-        "service/ram"
-    ]
-}

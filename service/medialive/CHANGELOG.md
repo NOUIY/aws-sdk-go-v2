@@ -1,3 +1,7 @@
+# v1.92.0 (2026-02-05)
+
+* **Feature**: Outputs using the AV1 codec in CMAF Ingest output groups in MediaLive now have the ability to specify a target bit depth of 8 or 10.
+
 # v1.91.0 (2026-02-04)
 
 * **Feature**: AWS Elemental MediaLive now supports SRT listener mode for inputs and outputs, in addition to the existing SRT caller mode.

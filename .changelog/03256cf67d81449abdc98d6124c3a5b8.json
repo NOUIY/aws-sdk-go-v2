@@ -1,8 +1,0 @@
-{
-    "id": "03256cf6-7d81-449a-bdc9-8d6124c3a5b8",
-    "type": "feature",
-    "description": "Support Browser profile persistence (cookies and local storage) across sessions for AgentCore Browser.",
-    "modules": [
-        "service/bedrockagentcore"
-    ]
-}

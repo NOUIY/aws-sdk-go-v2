@@ -1,8 +1,0 @@
-{
-    "id": "da56244e-48a4-4e19-ae08-e5e0cb73628a",
-    "type": "feature",
-    "description": "This release adds the capability to easily create custom AWS Glue connections to data sources with REST APIs.",
-    "modules": [
-        "service/glue"
-    ]
-}

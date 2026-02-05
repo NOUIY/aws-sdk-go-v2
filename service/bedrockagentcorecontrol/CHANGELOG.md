@@ -1,3 +1,7 @@
+# v1.19.0 (2026-02-05)
+
+* **Feature**: Support Browser profile persistence (cookies and local storage) across sessions for AgentCore Browser.
+
 # v1.18.0 (2026-02-02)
 
 * **Feature**: Adds tagging support for AgentCore Evaluations (evaluator and online evaluation config)
