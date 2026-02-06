@@ -1,8 +1,0 @@
-{
-    "id": "1e0597de-0926-4787-98e3-b4d6db80ded2",
-    "type": "feature",
-    "description": "Adding support for Custom(General) Authorization in managed integrations for AWS IoT Device Management cloud connectors.",
-    "modules": [
-        "service/iotmanagedintegrations"
-    ]
-}

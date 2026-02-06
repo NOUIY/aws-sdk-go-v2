@@ -1,8 +1,0 @@
-{
-    "id": "12cc6ead-3384-4ee0-815e-1af28a2f1dda",
-    "type": "feature",
-    "description": "Adding g7e instance support in Sagemaker Training",
-    "modules": [
-        "service/sagemaker"
-    ]
-}

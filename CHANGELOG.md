@@ -1,3 +1,17 @@
+# Release (2026-02-06)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/bedrockdataautomationruntime`: [v1.10.0](service/bedrockdataautomationruntime/CHANGELOG.md#v1100-2026-02-06)
+  * **Feature**: Add OutputConfiguration to InvokeDataAutomation input and output to support S3 output
+* `github.com/aws/aws-sdk-go-v2/service/deadline`: [v1.25.0](service/deadline/CHANGELOG.md#v1250-2026-02-06)
+  * **Feature**: Adds support for tagging jobs during job creation
+* `github.com/aws/aws-sdk-go-v2/service/iotmanagedintegrations`: [v1.8.0](service/iotmanagedintegrations/CHANGELOG.md#v180-2026-02-06)
+  * **Feature**: Adding support for Custom(General) Authorization in managed integrations for AWS IoT Device Management cloud connectors.
+* `github.com/aws/aws-sdk-go-v2/service/partnercentralselling`: [v1.14.0](service/partnercentralselling/CHANGELOG.md#v1140-2026-02-06)
+  * **Feature**: Releasing AWS Opportunity Snapshots for SDK release.
+* `github.com/aws/aws-sdk-go-v2/service/sagemaker`: [v1.232.0](service/sagemaker/CHANGELOG.md#v12320-2026-02-06)
+  * **Feature**: Adding g7e instance support in Sagemaker Training
+
 # Release (2026-02-05)
 
 ## Module Highlights

@@ -1,8 +1,0 @@
-{
-    "id": "0fb185f4-9233-42a7-bd2b-716bbf0008e7",
-    "type": "feature",
-    "description": "Releasing AWS Opportunity Snapshots for SDK release.",
-    "modules": [
-        "service/partnercentralselling"
-    ]
-}
