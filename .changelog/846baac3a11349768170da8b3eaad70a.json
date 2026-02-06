@@ -1,0 +1,8 @@
+{
+    "id": "846baac3-a113-4976-8170-da8b3eaad70a",
+    "type": "feature",
+    "description": "Add OutputConfiguration to InvokeDataAutomation input and output to support S3 output",
+    "modules": [
+        "service/bedrockdataautomationruntime"
+    ]
+}
