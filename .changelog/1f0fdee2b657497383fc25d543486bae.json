@@ -1,0 +1,8 @@
+{
+    "id": "1f0fdee2-b657-4973-83fc-25d543486bae",
+    "type": "feature",
+    "description": "Added AgentCore browser proxy configuration support, allowing routing of browser traffic through HTTP and HTTPS proxy servers with authentication and bypass rules.",
+    "modules": [
+        "service/bedrockagentcore"
+    ]
+}

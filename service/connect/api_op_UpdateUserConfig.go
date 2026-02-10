@@ -11,31 +11,29 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Updates the phone configuration settings for the specified user.
+// Updates the configuration settings for the specified user, including
+// per-channel auto-accept and after contact work (ACW) timeout settings.
 //
-// We recommend using the [UpdateUserConfig] API, which supports additional functionality that is
-// not available in the UpdateUserPhoneConfig API, such as voice enhancement
-// settings and per-channel configuration for auto-accept and After Contact Work
-// (ACW) timeouts. In comparison, the UpdateUserPhoneConfig API will always set the
-// same ACW timeouts to all channels the user handles.
-//
-// [UpdateUserConfig]: https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserConfig.html
-func (c *Client) UpdateUserPhoneConfig(ctx context.Context, params *UpdateUserPhoneConfigInput, optFns ...func(*Options)) (*UpdateUserPhoneConfigOutput, error) {
+// This operation replaces the UpdateUserPhoneConfig API. While
+// UpdateUserPhoneConfig applies the same ACW timeout to all channels,
+// UpdateUserConfig allows you to set different auto-accept and ACW timeout values
+// for each channel type.
+func (c *Client) UpdateUserConfig(ctx context.Context, params *UpdateUserConfigInput, optFns ...func(*Options)) (*UpdateUserConfigOutput, error) {
 	if params == nil {
-		params = &UpdateUserPhoneConfigInput{}
+		params = &UpdateUserConfigInput{}
 	}
 
-	result, metadata, err := c.invokeOperation(ctx, "UpdateUserPhoneConfig", params, optFns, c.addOperationUpdateUserPhoneConfigMiddlewares)
+	result, metadata, err := c.invokeOperation(ctx, "UpdateUserConfig", params, optFns, c.addOperationUpdateUserConfigMiddlewares)
 	if err != nil {
 		return nil, err
 	}
 
-	out := result.(*UpdateUserPhoneConfigOutput)
+	out := result.(*UpdateUserConfigOutput)
 	out.ResultMetadata = metadata
 	return out, nil
 }
 
-type UpdateUserPhoneConfigInput struct {
+type UpdateUserConfigInput struct {
 
 	// The identifier of the Amazon Connect instance. You can [find the instance ID] in the Amazon Resource
 	// Name (ARN) of the instance.
@@ -45,39 +43,56 @@ type UpdateUserPhoneConfigInput struct {
 	// This member is required.
 	InstanceId *string
 
-	// Information about phone configuration settings for the user.
-	//
-	// This member is required.
-	PhoneConfig *types.UserPhoneConfig
-
 	// The identifier of the user account.
 	//
 	// This member is required.
 	UserId *string
 
+	// The list of after contact work (ACW) timeout configuration settings for each
+	// channel. ACW timeout specifies how many seconds agents have for after contact
+	// work, such as entering notes about the contact. The minimum setting is 1 second,
+	// and the maximum is 2,000,000 seconds (24 days). Enter 0 for an indefinite amount
+	// of time, meaning agents must manually choose to end ACW.
+	AfterContactWorkConfigs []types.AfterContactWorkConfigPerChannel
+
+	// The list of auto-accept configuration settings for each channel. When
+	// auto-accept is enabled for a channel, available agents are automatically
+	// connected to contacts from that channel without needing to manually accept.
+	// Auto-accept connects agents to contacts in less than one second.
+	AutoAcceptConfigs []types.AutoAcceptConfig
+
+	// The list of persistent connection configuration settings for each channel.
+	PersistentConnectionConfigs []types.PersistentConnectionConfig
+
+	// The list of phone number configuration settings for each channel.
+	PhoneNumberConfigs []types.PhoneNumberConfig
+
+	// The list of voice enhancement configuration settings for each channel.
+	VoiceEnhancementConfigs []types.VoiceEnhancementConfig
+
 	noSmithyDocumentSerde
 }
 
-type UpdateUserPhoneConfigOutput struct {
+type UpdateUserConfigOutput struct {
 	// Metadata pertaining to the operation's result.
 	ResultMetadata middleware.Metadata
 
 	noSmithyDocumentSerde
 }
 
-func (c *Client) addOperationUpdateUserPhoneConfigMiddlewares(stack *middleware.Stack, options Options) (err error) {
+func (c *Client) addOperationUpdateUserConfigMiddlewares(stack *middleware.Stack, options Options) (err error) {
 	if err := stack.Serialize.Add(&setOperationInputMiddleware{}, middleware.After); err != nil {
 		return err
 	}
-	err = stack.Serialize.Add(&awsRestjson1_serializeOpUpdateUserPhoneConfig{}, middleware.After)
+	err = stack.Serialize.Add(&awsRestjson1_serializeOpUpdateUserConfig{}, middleware.After)
 	if err != nil {
 		return err
 	}
-	err = stack.Deserialize.Add(&awsRestjson1_deserializeOpUpdateUserPhoneConfig{}, middleware.After)
+	err = stack.Deserialize.Add(&awsRestjson1_deserializeOpUpdateUserConfig{}, middleware.After)
 	if err != nil {
 		return err
 	}
-	if err := addProtocolFinalizerMiddlewares(stack, options, "UpdateUserPhoneConfig"); err != nil {
+	if err := addProtocolFinalizerMiddlewares(stack, options, "UpdateUserConfig"); err != nil {
 		return fmt.Errorf("add protocol finalizers: %v", err)
 	}
 
@@ -132,10 +147,10 @@ func (c *Client) addOperationUpdateUserPhoneConfigMiddlewares(stack *middleware.
 	if err = addCredentialSource(stack, options); err != nil {
 		return err
 	}
-	if err = addOpUpdateUserPhoneConfigValidationMiddleware(stack); err != nil {
+	if err = addOpUpdateUserConfigValidationMiddleware(stack); err != nil {
 		return err
 	}
-	if err = stack.Initialize.Add(newServiceMetadataMiddleware_opUpdateUserPhoneConfig(options.Region), middleware.Before); err != nil {
+	if err = stack.Initialize.Add(newServiceMetadataMiddleware_opUpdateUserConfig(options.Region), middleware.Before); err != nil {
 		return err
 	}
 	if err = addRecursionDetection(stack); err != nil {
@@ -165,10 +180,10 @@ func (c *Client) addOperationUpdateUserPhoneConfigMiddlewares(stack *middleware.
 	return nil
 }
 
-func newServiceMetadataMiddleware_opUpdateUserPhoneConfig(region string) *awsmiddleware.RegisterServiceMetadata {
+func newServiceMetadataMiddleware_opUpdateUserConfig(region string) *awsmiddleware.RegisterServiceMetadata {
 	return &awsmiddleware.RegisterServiceMetadata{
 		Region:        region,
 		ServiceID:     ServiceID,
-		OperationName: "UpdateUserPhoneConfig",
+		OperationName: "UpdateUserConfig",
 	}
 }
