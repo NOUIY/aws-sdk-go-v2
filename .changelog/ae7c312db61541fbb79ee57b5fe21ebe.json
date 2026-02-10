@@ -1,8 +1,0 @@
-{
-    "id": "ae7c312d-b615-41fb-b79e-e57b5fe21ebe",
-    "type": "feature",
-    "description": "Introduces RESUMING state for clusters, compute node groups, and queues.",
-    "modules": [
-        "service/pcs"
-    ]
-}

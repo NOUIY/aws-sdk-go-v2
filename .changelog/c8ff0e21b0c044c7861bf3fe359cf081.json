@@ -1,8 +1,0 @@
-{
-    "id": "c8ff0e21-b0c0-44c7-861b-f3fe359cf081",
-    "type": "documentation",
-    "description": "This release adds a documentation update for MdnResponse of type \"ASYNC\"",
-    "modules": [
-        "service/transfer"
-    ]
-}

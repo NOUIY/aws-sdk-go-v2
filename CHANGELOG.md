@@ -1,3 +1,27 @@
+# Release (2026-02-10)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/connectcampaignsv2`: [v1.11.0](service/connectcampaignsv2/CHANGELOG.md#v1110-2026-02-10)
+  * **Feature**: Add the missing event type for WhatsApp
+* `github.com/aws/aws-sdk-go-v2/service/ec2`: [v1.286.0](service/ec2/CHANGELOG.md#v12860-2026-02-10)
+  * **Feature**: Amazon Secondary Networks is a networking feature that provides high-performance, low-latency connectivity for specialized workloads.
+* `github.com/aws/aws-sdk-go-v2/service/eks`: [v1.78.0](service/eks/CHANGELOG.md#v1780-2026-02-10)
+  * **Feature**: Amazon EKS adds a new DescribeUpdate update type, VendedLogsUpdate, to support an integration between EKS Auto Mode and Amazon CloudWatch Vended Logs.
+* `github.com/aws/aws-sdk-go-v2/service/evidently`: [v1.30.0](service/evidently/CHANGELOG.md#v1300-2026-02-10)
+  * **Feature**: Marked service APIs as deprecated. This service has reached end-of-life.
+* `github.com/aws/aws-sdk-go-v2/service/imagebuilder`: [v1.51.0](service/imagebuilder/CHANGELOG.md#v1510-2026-02-10)
+  * **Feature**: EC2 Image Builder now supports wildcard patterns in lifecycle policies with recipes and enhances the experience of tag-scoped policies.
+* `github.com/aws/aws-sdk-go-v2/service/iotanalytics`: [v1.32.0](service/iotanalytics/CHANGELOG.md#v1320-2026-02-10)
+  * **Feature**: Marked service APIs as deprecated. This service has reached end-of-life.
+* `github.com/aws/aws-sdk-go-v2/service/lakeformation`: [v1.47.1](service/lakeformation/CHANGELOG.md#v1471-2026-02-10)
+  * **Documentation**: Allow cross account v5 in put data lake settings
+* `github.com/aws/aws-sdk-go-v2/service/neptunedata`: [v1.17.0](service/neptunedata/CHANGELOG.md#v1170-2026-02-10)
+  * **Feature**: Added edgeOnlyLoad boolean parameter to Neptune bulk load request. When TRUE, files are loaded in order without scanning. When FALSE (default), the loader scans files first, then loads vertex files before edge files automatically.
+* `github.com/aws/aws-sdk-go-v2/service/pcs`: [v1.16.0](service/pcs/CHANGELOG.md#v1160-2026-02-10)
+  * **Feature**: Introduces RESUMING state for clusters, compute node groups, and queues.
+* `github.com/aws/aws-sdk-go-v2/service/transfer`: [v1.69.1](service/transfer/CHANGELOG.md#v1691-2026-02-10)
+  * **Documentation**: This release adds a documentation update for MdnResponse of type "ASYNC"
+
 # Release (2026-02-06)
 
 ## Module Highlights

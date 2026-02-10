@@ -1,8 +1,0 @@
-{
-    "id": "5ae0b2fa-9d31-4503-a5d4-e4fe5d2e8c8a",
-    "type": "feature",
-    "description": "Amazon Secondary Networks is a networking feature that provides high-performance, low-latency connectivity for specialized workloads.",
-    "modules": [
-        "service/ec2"
-    ]
-}

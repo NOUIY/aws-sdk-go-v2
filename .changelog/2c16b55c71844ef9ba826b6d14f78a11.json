@@ -1,8 +1,0 @@
-{
-    "id": "2c16b55c-7184-4ef9-ba82-6b6d14f78a11",
-    "type": "documentation",
-    "description": "Allow cross account v5 in put data lake settings",
-    "modules": [
-        "service/lakeformation"
-    ]
-}
