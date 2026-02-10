@@ -1,0 +1,8 @@
+{
+    "id": "8f2f16e0-3f37-4d76-ac4e-cce8aebb918e",
+    "type": "feature",
+    "description": "Add the missing event type for WhatsApp",
+    "modules": [
+        "service/connectcampaignsv2"
+    ]
+}

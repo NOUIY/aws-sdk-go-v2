@@ -1,0 +1,8 @@
+{
+    "id": "cc1f4332-f061-48bc-b112-23b570a4aabc",
+    "type": "feature",
+    "description": "EC2 Image Builder now supports wildcard patterns in lifecycle policies with recipes and enhances the experience of tag-scoped policies.",
+    "modules": [
+        "service/imagebuilder"
+    ]
+}
