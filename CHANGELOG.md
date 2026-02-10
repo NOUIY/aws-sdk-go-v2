@@ -1,3 +1,17 @@
+# Release (2026-02-10.2)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/bedrockagentcore`: [v1.13.0](service/bedrockagentcore/CHANGELOG.md#v1130-2026-02-102)
+  * **Feature**: Added AgentCore browser proxy configuration support, allowing routing of browser traffic through HTTP and HTTPS proxy servers with authentication and bypass rules.
+* `github.com/aws/aws-sdk-go-v2/service/connect`: [v1.161.0](service/connect/CHANGELOG.md#v11610-2026-02-102)
+  * **Feature**: Amazon Connect now supports per-channel auto-accept and After Contact Work (ACW) timeouts. Configure agents with auto-accept and ACW timeout settings for chat, tasks, emails, and callbacks. Use the new UpdateUserConfig API to manage these settings.
+* `github.com/aws/aws-sdk-go-v2/service/eks`: [v1.79.0](service/eks/CHANGELOG.md#v1790-2026-02-102)
+  * **Feature**: Introducing an optional policy field, an IAM policy applied to pod identity associations in addition to IAM role policies. When specified, pod permissions are the intersection of IAM role policies and the policy field, ensuring the principle of least privilege.
+* `github.com/aws/aws-sdk-go-v2/service/kafka`: [v1.47.0](service/kafka/CHANGELOG.md#v1470-2026-02-102)
+  * **Feature**: Amazon MSK adds three new APIs, CreateTopic, UpdateTopic, and DeleteTopic for managing Kafka topics in your MSK clusters.
+* `github.com/aws/aws-sdk-go-v2/service/rds`: [v1.115.0](service/rds/CHANGELOG.md#v11150-2026-02-102)
+  * **Feature**: This release adds backup configuration for RDS and Aurora restores, letting customers set backup retention period and preferred backup window during restore. It also enables viewing backup settings when describing snapshots or automated backups for instances and clusters.
+
 # Release (2026-02-10)
 
 ## Module Highlights

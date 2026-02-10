@@ -1,8 +1,0 @@
-{
-    "id": "9a0f69ba-9075-4c4e-9b23-c863020a1cb3",
-    "type": "feature",
-    "description": "Amazon MSK adds three new APIs, CreateTopic, UpdateTopic, and DeleteTopic for managing Kafka topics in your MSK clusters.",
-    "modules": [
-        "service/kafka"
-    ]
-}
