@@ -1,0 +1,8 @@
+{
+    "id": "29188011-3d4f-41d5-8b51-e5ec79f7e9c4",
+    "type": "feature",
+    "description": "Support configurable upper limits on task count during autoscaling operations via maxAutoscalingTaskCount parameter.",
+    "modules": [
+        "service/kafkaconnect"
+    ]
+}

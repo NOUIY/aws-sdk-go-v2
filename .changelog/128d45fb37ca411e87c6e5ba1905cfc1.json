@@ -1,0 +1,8 @@
+{
+    "id": "128d45fb-37ca-411e-87c6-e5ba1905cfc1",
+    "type": "feature",
+    "description": "R8i instances powered by custom Intel Xeon 6 processors available only on AWS with sustained all-core 3.9 GHz turbo frequency",
+    "modules": [
+        "service/ec2"
+    ]
+}

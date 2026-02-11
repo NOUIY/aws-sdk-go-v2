@@ -1,0 +1,8 @@
+{
+    "id": "9e88736c-3f64-4efa-8f15-ca99420de9ca",
+    "type": "feature",
+    "description": "Add support for listing jobs by share identifier and getting snapshots of active capacity utilization by job queue and share.",
+    "modules": [
+        "service/batch"
+    ]
+}
