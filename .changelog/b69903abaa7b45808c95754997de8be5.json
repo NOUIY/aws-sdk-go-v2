@@ -1,0 +1,8 @@
+{
+    "id": "b69903ab-aa7b-4580-8c95-754997de8be5",
+    "type": "feature",
+    "description": "Launching nested virtualization. This feature allows you to run nested VMs inside virtual (non-bare metal) EC2 instances.",
+    "modules": [
+        "service/ec2"
+    ]
+}
