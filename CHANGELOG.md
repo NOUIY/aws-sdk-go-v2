@@ -1,3 +1,9 @@
+# Release (2026-02-12)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/ec2`: [v1.288.0](service/ec2/CHANGELOG.md#v12880-2026-02-12)
+  * **Feature**: Launching nested virtualization. This feature allows you to run nested VMs inside virtual (non-bare metal) EC2 instances.
+
 # Release (2026-02-11)
 
 ## Module Highlights
