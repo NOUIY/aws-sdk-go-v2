@@ -1,8 +1,0 @@
-{
-    "id": "25786510-1070-4547-ace5-d9baee8808b6",
-    "type": "feature",
-    "description": "Added .Net 10 (dotnet10) and Node 24.x (node24.x) runtime support for lambda package scanning",
-    "modules": [
-        "service/inspector2"
-    ]
-}

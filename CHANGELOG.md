@@ -1,3 +1,17 @@
+# Release (2026-02-13)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/cloudwatch`: [v1.54.0](service/cloudwatch/CHANGELOG.md#v1540-2026-02-13)
+  * **Feature**: Adding new evaluation states that provides information about the alarm evaluation process. Evaluation error Indicates configuration errors in alarm setup that require review and correction. Evaluation failure Indicates temporary CloudWatch issues.
+* `github.com/aws/aws-sdk-go-v2/service/connect`: [v1.162.0](service/connect/CHANGELOG.md#v11620-2026-02-13)
+  * **Feature**: API release for headerr notifications in the admin website. APIs allow customers to publish brief messages (including URLs) to a specified audience, and a new header icon will indicate when unread messages are available.
+* `github.com/aws/aws-sdk-go-v2/service/ec2`: [v1.289.0](service/ec2/CHANGELOG.md#v12890-2026-02-13)
+  * **Feature**: This release adds geography information to EC2 region and availability zone APIs. DescribeRegions now includes a Geography field, while DescribeAvailabilityZones includes both Geography and SubGeography fields, enabling better geographic classification for AWS regions and zones.
+* `github.com/aws/aws-sdk-go-v2/service/inspector2`: [v1.47.0](service/inspector2/CHANGELOG.md#v1470-2026-02-13)
+  * **Feature**: Added .Net 10 (dotnet10) and Node 24.x (node24.x) runtime support for lambda package scanning
+* `github.com/aws/aws-sdk-go-v2/service/sagemaker`: [v1.233.0](service/sagemaker/CHANGELOG.md#v12330-2026-02-13)
+  * **Feature**: Enable g7e instance type support for SageMaker Processing, and enable single file configuration provisioning for HyperPod Slurm, where customers have the option to use HyperPod API to provide the provisioning parameters.
+
 # Release (2026-02-12)
 
 ## Module Highlights
