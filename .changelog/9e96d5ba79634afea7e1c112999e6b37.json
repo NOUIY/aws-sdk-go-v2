@@ -1,0 +1,8 @@
+{
+    "id": "9e96d5ba-7963-4afe-a7e1-c112999e6b37",
+    "type": "feature",
+    "description": "Enable g7e instance type support for SageMaker Processing, and enable single file configuration provisioning for HyperPod Slurm, where customers have the option to use HyperPod API to provide the provisioning parameters.",
+    "modules": [
+        "service/sagemaker"
+    ]
+}

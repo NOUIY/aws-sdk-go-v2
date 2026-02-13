@@ -1,0 +1,8 @@
+{
+    "id": "393981a1-5a33-4601-b9fa-734fd6e077c8",
+    "type": "feature",
+    "description": "API release for headerr notifications in the admin website. APIs allow customers to publish brief messages (including URLs) to a specified audience, and a new header icon will indicate when unread messages are available.",
+    "modules": [
+        "service/connect"
+    ]
+}
