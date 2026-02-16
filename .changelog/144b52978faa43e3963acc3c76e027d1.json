@@ -1,8 +1,0 @@
-{
-    "id": "144b5297-8faa-43e3-963a-cc3c76e027d1",
-    "type": "feature",
-    "description": "Update MessageType enum to include missing types.",
-    "modules": [
-        "service/qconnect"
-    ]
-}

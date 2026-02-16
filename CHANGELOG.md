@@ -1,3 +1,19 @@
+# Release (2026-02-16)
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/arcregionswitch`: [v1.5.1](service/arcregionswitch/CHANGELOG.md#v151-2026-02-16)
+  * **Documentation**: Clarify documentation on ARC Region Switch start-plan-execution operation
+* `github.com/aws/aws-sdk-go-v2/service/ec2`: [v1.289.1](service/ec2/CHANGELOG.md#v12891-2026-02-16)
+  * **Documentation**: Documentation updates for EC2 Secondary Networks
+* `github.com/aws/aws-sdk-go-v2/service/ecr`: [v1.55.2](service/ecr/CHANGELOG.md#v1552-2026-02-16)
+  * **Documentation**: Adds support for enabling blob mounting, and removes support for Clair based image scanning
+* `github.com/aws/aws-sdk-go-v2/service/kafka`: [v1.48.0](service/kafka/CHANGELOG.md#v1480-2026-02-16)
+  * **Feature**: Amazon MSK now supports dual-stack connectivity (IPv4 and IPv6) for existing MSK clusters. You can enable dual-stack on existing clusters by specifying the NetworkType parameter in updateConnectivity API.
+* `github.com/aws/aws-sdk-go-v2/service/kms`: [v1.50.0](service/kms/CHANGELOG.md#v1500-2026-02-16)
+  * **Feature**: Added support for Decrypt and ReEncrypt API's to use dry run feature without ciphertext for authorization validation
+* `github.com/aws/aws-sdk-go-v2/service/qconnect`: [v1.28.0](service/qconnect/CHANGELOG.md#v1280-2026-02-16)
+  * **Feature**: Update MessageType enum to include missing types.
+
 # Release (2026-02-13)
 
 ## Module Highlights

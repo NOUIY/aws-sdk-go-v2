@@ -1,8 +1,0 @@
-{
-    "id": "0ffac342-78d6-4cfb-a60e-833d72e1b40b",
-    "type": "documentation",
-    "description": "Adds support for enabling blob mounting, and removes support for Clair based image scanning",
-    "modules": [
-        "service/ecr"
-    ]
-}
