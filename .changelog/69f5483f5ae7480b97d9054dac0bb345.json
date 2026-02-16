@@ -1,0 +1,8 @@
+{
+    "id": "69f5483f-5ae7-480b-97d9-054dac0bb345",
+    "type": "feature",
+    "description": "Added support for Decrypt and ReEncrypt API's to use dry run feature without ciphertext for authorization validation",
+    "modules": [
+        "service/kms"
+    ]
+}
