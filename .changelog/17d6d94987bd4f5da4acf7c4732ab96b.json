@@ -1,0 +1,8 @@
+{
+    "id": "17d6d949-87bd-4f5d-a4ac-f7c4732ab96b",
+    "type": "feature",
+    "description": "Add Operator field to CreatePlacementGroup and DescribePlacementGroup APIs.",
+    "modules": [
+        "service/ec2"
+    ]
+}

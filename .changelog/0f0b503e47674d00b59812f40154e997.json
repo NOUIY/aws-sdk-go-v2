@@ -1,0 +1,8 @@
+{
+    "id": "0f0b503e-4767-4d00-b598-12f40154e997",
+    "type": "feature",
+    "description": "Adds support for branding customization without requiring a custom wallpaper.",
+    "modules": [
+        "service/workspacesweb"
+    ]
+}

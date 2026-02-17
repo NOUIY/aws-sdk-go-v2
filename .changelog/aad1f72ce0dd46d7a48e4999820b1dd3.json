@@ -1,0 +1,8 @@
+{
+    "id": "aad1f72c-e0dd-46d7-a48e-4999820b1dd3",
+    "type": "feature",
+    "description": "Adds support for the StorageEncryptionType field to specify encryption type for DB clusters, DB instances, snapshots, automated backups, and global clusters.",
+    "modules": [
+        "service/rds"
+    ]
+}
