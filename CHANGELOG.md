@@ -1,3 +1,18 @@
+# Release (2026-02-17)
+
+## General Highlights
+* **Dependency Update**: Updated to the latest SDK module versions
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/ec2`: [v1.290.0](service/ec2/CHANGELOG.md#v12900-2026-02-17)
+  * **Feature**: Add Operator field to CreatePlacementGroup and DescribePlacementGroup APIs.
+* `github.com/aws/aws-sdk-go-v2/service/grafana`: [v1.33.0](service/grafana/CHANGELOG.md#v1330-2026-02-17)
+  * **Feature**: This release updates Amazon Managed Grafana's APIs to support customer managed KMS keys.
+* `github.com/aws/aws-sdk-go-v2/service/rds`: [v1.116.0](service/rds/CHANGELOG.md#v11160-2026-02-17)
+  * **Feature**: Adds support for the StorageEncryptionType field to specify encryption type for DB clusters, DB instances, snapshots, automated backups, and global clusters.
+* `github.com/aws/aws-sdk-go-v2/service/workspacesweb`: [v1.38.0](service/workspacesweb/CHANGELOG.md#v1380-2026-02-17)
+  * **Feature**: Adds support for branding customization without requiring a custom wallpaper.
+
 # Release (2026-02-16)
 
 ## Module Highlights

@@ -1,8 +1,0 @@
-{
-    "id": "c98b47c7-ea92-453c-a478-b86eed1900d4",
-    "type": "feature",
-    "description": "This release updates Amazon Managed Grafana's APIs to support customer managed KMS keys.",
-    "modules": [
-        "service/grafana"
-    ]
-}
