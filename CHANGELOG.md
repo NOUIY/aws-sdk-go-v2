@@ -1,3 +1,14 @@
+# Release (2026-02-18)
+
+## General Highlights
+* **Dependency Update**: Updated to the latest SDK module versions
+
+## Module Highlights
+* `github.com/aws/aws-sdk-go-v2/service/cleanrooms`: [v1.42.0](service/cleanrooms/CHANGELOG.md#v1420-2026-02-18)
+  * **Feature**: This release adds support for federated catalogs in Athena-sourced configured tables.
+* `github.com/aws/aws-sdk-go-v2/service/connect`: [v1.162.1](service/connect/CHANGELOG.md#v11621-2026-02-18)
+  * **Documentation**: Correcting in-app notifications API documentation.
+
 # Release (2026-02-17)
 
 ## General Highlights
