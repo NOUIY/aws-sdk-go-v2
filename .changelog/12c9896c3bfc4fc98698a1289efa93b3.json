@@ -1,0 +1,8 @@
+{
+    "id": "12c9896c-3bfc-4fc9-8698-a1289efa93b3",
+    "type": "documentation",
+    "description": "Correcting in-app notifications API documentation.",
+    "modules": [
+        "service/connect"
+    ]
+}

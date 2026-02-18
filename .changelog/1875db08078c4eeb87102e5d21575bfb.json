@@ -1,0 +1,8 @@
+{
+    "id": "1875db08-078c-4eeb-8710-2e5d21575bfb",
+    "type": "feature",
+    "description": "This release adds support for federated catalogs in Athena-sourced configured tables.",
+    "modules": [
+        "service/cleanrooms"
+    ]
+}

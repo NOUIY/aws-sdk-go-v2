@@ -13,7 +13,7 @@ import (
 )
 
 // Creates a new notification to be delivered to specified recipients.
-// Notifications can include localized content with embedded links, and an optional
+// Notifications can include localized content with links, and an optional
 // expiration time. Recipients can be specified as individual user ARNs or instance
 // ARNs to target all users in an instance.
 func (c *Client) CreateNotification(ctx context.Context, params *CreateNotificationInput, optFns ...func(*Options)) (*CreateNotificationOutput, error) {
@@ -34,8 +34,8 @@ func (c *Client) CreateNotification(ctx context.Context, params *CreateNotificat
 type CreateNotificationInput struct {
 
 	// The localized content of the notification. A map where keys are locale codes
-	// and values are the notification text in that locale. Content supports markdown
-	// formatting and embedded links. Maximum 250 characters per locale.
+	// and values are the notification text in that locale. Content supports links.
+	// Maximum 250 characters per locale.
 	//
 	// This member is required.
 	Content map[string]string
