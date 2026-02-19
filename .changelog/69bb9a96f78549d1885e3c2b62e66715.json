@@ -1,8 +1,0 @@
-{
-    "id": "69bb9a96-f785-49d1-885e-3c2b62e66715",
-    "type": "feature",
-    "description": "Adds multiple artifact types filter support in ListImageReferrers API.",
-    "modules": [
-        "service/ecr"
-    ]
-}

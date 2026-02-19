@@ -1,8 +1,0 @@
-{
-    "id": "acf460da-f982-45a9-b30c-d8480bdd480e",
-    "type": "feature",
-    "description": "AWS Private CA Connector for SCEP now supports AWS PrivateLink, allowing your clients to request certificates from within your Amazon Virtual Private Cloud (VPC) without traversing the public internet. With this launch, you can create VPC endpoints to connect to your SCEP connector privately.",
-    "modules": [
-        "service/pcaconnectorscep"
-    ]
-}
