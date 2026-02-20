@@ -1,8 +1,0 @@
-{
-    "id": "79c3d34a-6929-4356-8eb4-c9b1c0ee9ca2",
-    "type": "feature",
-    "description": "Adding a new enum attribute(statusReason) to TrustedAdvisorAPI response. This attribute explains reasoning behind check status for certain specific scenarios.",
-    "modules": [
-        "service/trustedadvisor"
-    ]
-}

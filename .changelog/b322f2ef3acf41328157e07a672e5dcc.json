@@ -1,8 +1,0 @@
-{
-    "id": "b322f2ef-3acf-4132-8157-e07a672e5dcc",
-    "type": "feature",
-    "description": "Added support for S3OutputPathExtension and Filename parameters to the InvokeEndpointAsync API to allow users to customize the S3 output path and file name for async inference response payloads.",
-    "modules": [
-        "service/sagemakerruntime"
-    ]
-}
