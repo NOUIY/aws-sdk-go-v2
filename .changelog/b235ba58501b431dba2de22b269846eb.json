@@ -1,0 +1,8 @@
+{
+    "id": "b235ba58-501b-431d-ba2d-e22b269846eb",
+    "type": "feature",
+    "description": "Migrated to Smithy. No functional changes",
+    "modules": [
+        "service/ecs"
+    ]
+}

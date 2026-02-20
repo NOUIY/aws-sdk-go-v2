@@ -1,0 +1,8 @@
+{
+    "id": "7092938b-3f8e-4bab-83c9-636c053e624f",
+    "type": "feature",
+    "description": "Add support for AssociationDispatchAssumeRole in AWS SSM State Manager.",
+    "modules": [
+        "service/ssm"
+    ]
+}

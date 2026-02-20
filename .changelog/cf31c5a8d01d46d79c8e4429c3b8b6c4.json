@@ -1,0 +1,8 @@
+{
+    "id": "cf31c5a8-d01d-46d7-9c8e-4429c3b8b6c4",
+    "type": "feature",
+    "description": "Adding new attribute to disable IMDS v1 APIs for fleet, Image Builder and AppBlockBuilder instances.",
+    "modules": [
+        "service/appstream"
+    ]
+}
